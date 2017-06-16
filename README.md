@@ -8,7 +8,10 @@ Root repository for the Streamix project. This includes:
 For details refer to each individual repository.
 
 ## 1. Installation and Requirements
-To install the Streamix tools type
+The Streamix tools require [`flex`](https://github.com/westes/flex), [`bison`](https://www.gnu.org/software/bison/), [`igraph`](http://igraph.org/c/), and [`zlog`](https://github.com/HardySimpson/zlog) are required (for installation see below).
+
+To install the Streamix tool type
+
 
     git clone --recursive https://github.com/moiri/streamix.git
     make
