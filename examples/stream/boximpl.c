@@ -5,28 +5,33 @@
 #include <zlog.h>
 #include <unistd.h>
 
-enum com_state_e { SYN, SYN_ACK, ACK, DONE };
-
 void* a( void* handler )
 {
-    char* data_x;
     char ch;
-    while(read(STDIN_FILENO, &ch, 1) > 0)
+    smx_msg_t* msg;
+    while(read(STDIN_FILENO, &ch, 1) > 0 )
     {
-        data_x = malloc( sizeof( char ) );
-        *data_x = ch;
-        SMX_CHANNEL_WRITE( handler, A, x, ( void* )data_x );
+        msg = SMX_MSG_CREATE( NULL, NULL, NULL );
+        msg->data = malloc( sizeof( char ) );
+        *( char* )( msg->data ) = ch;
+        SMX_CHANNEL_WRITE( handler, A, x, msg );
+        if( ch == ( char )27 )
+            break;
     }
     return NULL;
 }
 
 void* b( void* handler )
 {
-    char* data = NULL;
-    while(1) {
-        data = ( char* )SMX_CHANNEL_READ( handler, B, x );
-        dzlog_info( "b, received data_x: %c", *data );
-        free( data );
+    smx_msg_t* msg;
+    int run = 1;
+    while( run ) {
+        msg = SMX_CHANNEL_READ( handler, B, x );
+        dzlog_info( "b, received data_x: %c", *( char* )msg->data );
+        if( *( char* )msg->data == ( char )27 )
+            run = 0;
+        free( ( char* )msg->data );
+        SMX_MSG_DESTROY( msg );
         sleep(1);
     }
     return NULL;

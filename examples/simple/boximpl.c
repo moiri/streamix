@@ -6,25 +6,44 @@
 
 enum com_state_e { SYN, SYN_ACK, ACK, DONE };
 
+void msg_destroy( void* data )
+{
+    free( (char*)data );
+}
+
+void* msg_copy( void* data )
+{
+    char* copy = malloc( sizeof( char ) );
+    *copy = *( char* )data;
+    return ( void* )copy;
+}
+
+void* msg_init()
+{
+    char* init = malloc( sizeof( char ) );
+    *init = '0';
+    return ( void* )init;
+}
+
 void* a( void* handler )
 {
-    char* data_x = malloc( sizeof( char ) );
-    char* data_y = malloc( sizeof( char ) );
-    *data_x = 'x';
-    *data_y = 'y';
-    SMX_CHANNEL_WRITE( handler, A, x, ( void* )data_x );
-    SMX_CHANNEL_WRITE( handler, A, y, ( void* )data_y );
+    smx_msg_t* msg_x = SMX_MSG_CREATE( msg_init, msg_copy, msg_destroy );
+    smx_msg_t* msg_y = SMX_MSG_CREATE( msg_init, msg_copy, msg_destroy );
+    *( char* )( msg_x->data ) = 'x';
+    *( char* )( msg_y->data ) = 'y';
+    SMX_CHANNEL_WRITE( handler, A, x, msg_x );
+    SMX_CHANNEL_WRITE( handler, A, y, msg_y );
     return NULL;
 }
 
 void* b( void* handler )
 {
-    char* data = NULL;
-    data = ( char* )SMX_CHANNEL_READ( handler, B, y );
-    dzlog_info( "b, received data_y: %c", *data );
-    free( data );
-    data = ( char* )SMX_CHANNEL_READ( handler, B, x );
-    dzlog_info( "b, received data_x: %c", *data );
-    free( data );
+    smx_msg_t* msg;
+    msg = SMX_CHANNEL_READ( handler, B, y );
+    dzlog_info( "b, received data_y: %c", *( char* )msg->data );
+    SMX_MSG_DESTROY( msg );
+    msg = SMX_CHANNEL_READ( handler, B, x );
+    dzlog_info( "b, received data_x: %c", *( char* )msg->data );
+    SMX_MSG_DESTROY( msg );
     return NULL;
 }
