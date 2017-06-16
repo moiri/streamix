@@ -10,3 +10,9 @@
 [submodule "streamix-graph2c"]
 	path = streamix-graph2c
 	url = git@github.com:moiri/streamix-graph2c.git
+[submodule "zlog"]
+	path = zlog
+	url = https://github.com/HardySimpson/zlog.git
+[submodule "igraph"]
+	path = igraph
+	url = https://github.com/igraph/igraph.git

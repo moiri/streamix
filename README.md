@@ -7,23 +7,45 @@ Root repository for the Streamix project. This includes:
 
 For details refer to each individual repository.
 
-## Installation
+## 1. Installation and Requirements
+To install the Streamix tools type
 
-    git clone --recursive git@github.com:moiri/streamix.git
+    git clone --recursive https://github.com/moiri/streamix.git
     make
     sudo make install
 
 Execuatables, libary files and include files will be installed into `/usr/local/bin/`, `/usr/local/lib/` and `/usr/local/include/`, respectively.
 Make sure that `/usr/local/bin/` is in your `PATH` environment variable.
 
-Requires
- - [`flex`](https://github.com/westes/flex) for lexing the Streamix code
- - [`bison`](https://www.gnu.org/software/bison/) for parsing the Streamix code
- - [`igraph`](http://igraph.org/c/) to build depedency graphs (make sure GraphML is enabled)
- - [`zlog`](https://github.com/HardySimpson/zlog)
- - [`pthread`](https://computing.llnl.gov/tutorials/pthreads/)
+In order to install the Streamix tools, the following packages and libraries have to be installed:
+### 1.1. [`flex`](https://github.com/westes/flex)
+This is used for lexing the Streamix code. To install on an apt-based linux sytem type
 
-## Examples
+    sudo apt update
+    sudo apt install flex
+
+### 1.2. [`bison`](https://www.gnu.org/software/bison/)
+This is used for parsing the Streamix code. To install on an apt-based linux system type
+
+    sudo apt update
+    sudo apt install bison
+
+### 1.3. [`igraph`](http://igraph.org/c/)
+This is used to build depedency graphs. Make sure GraphML is enabled (see http://igraph.org/c/ for details)
+
+    cd igraph
+    ./configure
+    make
+    make check
+    sudo make install
+
+### 1.4 [`zlog`](https://github.com/HardySimpson/zlog)
+This is used as a logger in the runtime system. To install type
+
+    make
+    sudo make install
+
+## 2. Examples
 To compile all examples run
 
     make examples
