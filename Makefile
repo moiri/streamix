@@ -3,21 +3,20 @@ SHELL := /bin/bash
 C_DIR = streamix-c
 RTS_DIR = streamix-rts
 GRAPH_DIR = streamix-graph2c
+EXAMPLE_DIR = examples
 
-.PHONY: all clean install
+EXAMPLES = $(wildcard $(EXAMPLE_DIR)/*/.)
+PROJECTS = $(C_DIR) $(RTS_DIR) $(GRAPH_DIR)
 
-all:
-	cd $(C_DIR) && $(MAKE)
-	cd $(RTS_DIR) && $(MAKE)
-	cd $(GRAPH_DIR) && $(MAKE)
+TOPTARGETS := all clean install
 
-clean:
-	cd $(C_DIR) && $(MAKE) clean
-	cd $(RTS_DIR) && $(MAKE) clean
-	cd $(GRAPH_DIR) && $(MAKE) clean
-	rm -rf $(BIN_DIR)
+$(TOPTARGETS): $(PROJECTS)
+$(PROJECTS):
+	$(MAKE) -C $@ $(MAKECMDGOALS)
 
-install:
-	cd $(C_DIR) && $(MAKE) install
-	cd $(RTS_DIR) && $(MAKE) install
-	cd $(GRAPH_DIR) && $(MAKE) install
+examples: $(EXAMPLES)
+$(EXAMPLES):
+	$(MAKE) -C $@ clean
+	$(MAKE) -C $@
+
+.PHONY: $(TOPTARGETS) $(PROJECTS) examples $(EXAMPLES)

@@ -49,8 +49,13 @@ $(OUTGRAPH): $(PROJECT).smx
 	mkdir -p $(GENPATH)
 	smxc -f $(FORMAT) -o $(OUTGRAPH) $^
 
+.PHONY: clean run
+
 clean:
 	rm -f $(OUTGRAPH)
 	rm -f $(OUTSRC)
 	rm -f $(OUTINC)
 	rm -f $(PROJECT).out
+
+run:
+	./$(PROJECT).out
