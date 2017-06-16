@@ -42,6 +42,7 @@ This is used to build depedency graphs. Make sure GraphML is enabled (see http:/
 ### 1.4 [`zlog`](https://github.com/HardySimpson/zlog)
 This is used as a logger in the runtime system. To install type
 
+    cd zlog
     make
     sudo make install
 
