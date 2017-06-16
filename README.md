@@ -5,13 +5,16 @@ Root repository for the Streamix project. This includes:
  - the Streamix graph to C converter [`graph2c`](https://github.com/moiri/streamix-graph2c)
  - the Streamix network checker [`smxsia`](https://github.com/moiri/streamix-sia)
 
-For deatils refer to each individual repository.
+For details refer to each individual repository.
 
 ## Installation
 
     git clone --recursive git@github.com:moiri/streamix.git
     make
     sudo make install
+
+Execuatables, libary files and include files will be installed into `/usr/local/bin/`, `/usr/local/lib/` and `/usr/local/include/`, respectively.
+Make sure that `/usr/local/bin/` is in your `PATH` environment variable.
 
 Requires
  - [`flex`](https://github.com/westes/flex) for lexing the Streamix code
