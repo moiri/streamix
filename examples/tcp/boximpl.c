@@ -27,18 +27,18 @@ void* a( void* handler )
     while( state != DONE ) {
         switch( state ) {
             case SYN:
-                msg = SMX_CHANNEL_READ( handler, A, syn );
+                msg = SMX_CHANNEL_READ( handler, a, syn );
                 dzlog_info( "a, received data: %d", *( int* )msg->data );
                 state = SYN_ACK;
                 break;
             case SYN_ACK:
                 *( int* )msg->data -= 3;
                 sleep(1);
-                SMX_CHANNEL_WRITE( handler, A, syn_ack, msg );
+                SMX_CHANNEL_WRITE( handler, a, syn_ack, msg );
                 state = ACK;
                 break;
             case ACK:
-                msg = SMX_CHANNEL_READ( handler, A, ack );
+                msg = SMX_CHANNEL_READ( handler, a, ack );
                 dzlog_info( "a, received data: %d", *( int* )msg->data );
                 state = DONE;
                 break;
@@ -59,18 +59,18 @@ void* b( void* handler )
         switch( state ) {
             case SYN:
                 sleep(1);
-                SMX_CHANNEL_WRITE( handler, B, syn, msg );
+                SMX_CHANNEL_WRITE( handler, b, syn, msg );
                 state = SYN_ACK;
                 break;
             case SYN_ACK:
-                msg = SMX_CHANNEL_READ( handler, B, syn_ack );
+                msg = SMX_CHANNEL_READ( handler, b, syn_ack );
                 dzlog_info( "b, received data: %d", *( int* )msg->data );
                 state = ACK;
                 break;
             case ACK:
                 *( int* )msg->data += 5;
                 sleep(1);
-                SMX_CHANNEL_WRITE( handler, B, ack, msg );
+                SMX_CHANNEL_WRITE( handler, b, ack, msg );
                 state = DONE;
                 break;
             default:

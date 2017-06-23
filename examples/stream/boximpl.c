@@ -14,7 +14,7 @@ void* a( void* handler )
         msg = SMX_MSG_CREATE( NULL, NULL, NULL );
         msg->data = malloc( sizeof( char ) );
         *( char* )( msg->data ) = ch;
-        SMX_CHANNEL_WRITE( handler, A, x, msg );
+        SMX_CHANNEL_WRITE( handler, a, x, msg );
         if( ch == ( char )27 )
             break;
     }
@@ -26,7 +26,7 @@ void* b( void* handler )
     smx_msg_t* msg;
     int run = 1;
     while( run ) {
-        msg = SMX_CHANNEL_READ( handler, B, x );
+        msg = SMX_CHANNEL_READ( handler, b, x );
         dzlog_info( "b, received data_x: %c", *( char* )msg->data );
         if( *( char* )msg->data == ( char )27 )
             run = 0;

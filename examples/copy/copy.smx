@@ -1,0 +1,5 @@
+A = box a( out x )
+B1 = box b( in x )
+B2 = box b( in x )
+
+connect A.(B1|B2)

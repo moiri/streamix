@@ -1,0 +1,5 @@
+M = box m( up in x (x_in), down out x (x_out) )
+L = box l( out x )
+R = box r( in x )
+
+connect L.M.M.R
