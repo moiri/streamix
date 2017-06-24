@@ -37,7 +37,7 @@ smx: $(OUTSRC) $(OUTINC)
 
 # compile with dot stuff and debug flags
 debug: CFLAGS += $(DEBUG_FLAGS)
-debug: $(PROJECT)
+debug: $(PROJECT).out
 
 $(PROJECT).out: $(SOURCES) $(INCLUDES)
 	$(CC) $(CFLAGS) $(SOURCES) $(INCLUDES_DIR) $(LINK_DIR) $(LINK_FILE) -o $@
@@ -49,7 +49,7 @@ $(OUTGRAPH): $(PROJECT).smx
 	mkdir -p $(GENPATH)
 	smxc -f $(FORMAT) -o $(OUTGRAPH) $^
 
-.PHONY: clean run
+.PHONY: clean run valgrind
 
 clean:
 	rm -f $(OUTGRAPH)
@@ -59,3 +59,7 @@ clean:
 
 run:
 	./$(PROJECT).out
+
+valgrind:
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -v ./$(PROJECT).out
+

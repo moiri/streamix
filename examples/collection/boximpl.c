@@ -25,29 +25,29 @@ void* msg_init()
     return ( void* )init;
 }
 
-void* l( void* handler )
+int l( void* handler )
 {
     smx_msg_t* msg_x = SMX_MSG_CREATE( msg_init, msg_copy, msg_destroy );
     *( char* )( msg_x->data ) = '1';
     SMX_CHANNEL_WRITE( handler, l, x, msg_x );
-    return NULL;
+    return SMX_BOX_TERMINATE;
 }
 
-void* m( void* handler )
+int m( void* handler )
 {
     smx_msg_t* msg;
     msg = SMX_CHANNEL_READ( handler, m, x );
     dzlog_info( "m, received: %c", *( char* )msg->data );
     *( char* )msg->data = '2';
     SMX_CHANNEL_WRITE( handler, m, x, msg );
-    return NULL;
+    return SMX_BOX_TERMINATE;
 }
 
-void* r( void* handler )
+int r( void* handler )
 {
     smx_msg_t* msg;
     msg = SMX_CHANNEL_READ( handler, r, x );
     dzlog_info( "r, received: %c", *( char* )msg->data );
     SMX_MSG_DESTROY( msg );
-    return NULL;
+    return SMX_BOX_TERMINATE;
 }

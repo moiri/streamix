@@ -5,9 +5,6 @@
 #include <zlog.h>
 #include <unistd.h>
 
-enum com_state_e { SYN, SYN_ACK, ACK, DONE };
-
-
 void* msg_init()
 {
     int* init = malloc( sizeof( int ) );
@@ -20,62 +17,33 @@ void msg_destroy( void* data )
     free( ( int* )data );
 }
 
-void* a( void* handler )
+int a( void* handler )
 {
-    int state = SYN;
     smx_msg_t* msg;
-    while( state != DONE ) {
-        switch( state ) {
-            case SYN:
-                msg = SMX_CHANNEL_READ( handler, a, syn );
-                dzlog_info( "a, received data: %d", *( int* )msg->data );
-                state = SYN_ACK;
-                break;
-            case SYN_ACK:
-                *( int* )msg->data -= 3;
-                sleep(1);
-                SMX_CHANNEL_WRITE( handler, a, syn_ack, msg );
-                state = ACK;
-                break;
-            case ACK:
-                msg = SMX_CHANNEL_READ( handler, a, ack );
-                dzlog_info( "a, received data: %d", *( int* )msg->data );
-                state = DONE;
-                break;
-            default:
-                state = DONE;
-        }
-    }
+    msg = SMX_CHANNEL_READ( handler, a, syn );
+    dzlog_info( "a, received data: %d", *( int* )msg->data );
+    *( int* )msg->data -= 3;
+
+    sleep(1);
+    SMX_CHANNEL_WRITE( handler, a, syn_ack, msg );
+
+    msg = SMX_CHANNEL_READ( handler, a, ack );
+    dzlog_info( "a, received data: %d", *( int* )msg->data );
     SMX_MSG_DESTROY( msg );
-    return NULL;
+    return SMX_BOX_TERMINATE;
 }
 
-void* b( void* handler )
+int b( void* handler )
 {
-    int state = SYN;
     smx_msg_t* msg = SMX_MSG_CREATE( msg_init, NULL, msg_destroy );
+    sleep(1);
+    SMX_CHANNEL_WRITE( handler, b, syn, msg );
 
-    while( state != DONE ) {
-        switch( state ) {
-            case SYN:
-                sleep(1);
-                SMX_CHANNEL_WRITE( handler, b, syn, msg );
-                state = SYN_ACK;
-                break;
-            case SYN_ACK:
-                msg = SMX_CHANNEL_READ( handler, b, syn_ack );
-                dzlog_info( "b, received data: %d", *( int* )msg->data );
-                state = ACK;
-                break;
-            case ACK:
-                *( int* )msg->data += 5;
-                sleep(1);
-                SMX_CHANNEL_WRITE( handler, b, ack, msg );
-                state = DONE;
-                break;
-            default:
-                state = DONE;
-        }
-    }
-    return NULL;
+    msg = SMX_CHANNEL_READ( handler, b, syn_ack );
+    dzlog_info( "b, received data: %d", *( int* )msg->data );
+    *( int* )msg->data += 5;
+
+    sleep(1);
+    SMX_CHANNEL_WRITE( handler, b, ack, msg );
+    return SMX_BOX_TERMINATE;
 }
