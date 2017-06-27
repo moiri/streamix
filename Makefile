@@ -3,7 +3,7 @@ SHELL := /bin/bash
 C_DIR = streamix-c
 RTS_DIR = streamix-rts
 GRAPH_DIR = streamix-graph2c
-SIA_DIR = streamix-sia/sia2graph
+SIA_DIR = streamix-sia-lang
 EXAMPLE_DIR = examples
 
 EXAMPLES = $(wildcard $(EXAMPLE_DIR)/*/.)

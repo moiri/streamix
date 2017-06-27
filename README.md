@@ -4,6 +4,7 @@ Root repository for the Streamix project. This includes:
  - the Streamix runtime system [`smxrts`](https://github.com/moiri/streamix-rts)
  - the Streamix graph to C converter [`graph2c`](https://github.com/moiri/streamix-graph2c)
  - the Streamix network checker [`smxsia`](https://github.com/moiri/streamix-sia)
+ - the Streamix network checker language compiler [`sia2graph`](https://github.com/moiri/streamix-sia-lang)
 
 For details refer to each individual repository.
 
