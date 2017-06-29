@@ -5,7 +5,8 @@ BOXGEN = boxgen
 GENPATH = build
 FORMAT = graphml
 
-OUTGRAPH = $(GENPATH)/$(PROJECT).$(FORMAT)
+OUTGRAPH_NAME = $(PROJECT).$(FORMAT)
+OUTGRAPH = $(GENPATH)/$(OUTGRAPH_NAME)
 OUTSRC = $(GENPATH)/$(PROJECT).c \
 		 $(GENPATH)/$(BOXGEN).c
 OUTINC = $(GENPATH)/$(BOXGEN).h
@@ -43,18 +44,15 @@ $(PROJECT).out: $(SOURCES) $(INCLUDES)
 	$(CC) $(CFLAGS) $(SOURCES) $(INCLUDES_DIR) $(LINK_DIR) $(LINK_FILE) -o $@
 
 $(OUTSRC) $(OUTINC): $(OUTGRAPH)
-	graph2c $^ -p $(GENPATH)/ -f $(FORMAT)
+	graph2c $^ -p $(GENPATH) -f $(FORMAT)
 
 $(OUTGRAPH): $(PROJECT).smx
-	mkdir -p $(GENPATH)
-	smxc -f $(FORMAT) -o $(OUTGRAPH) $^
+	smxc -f $(FORMAT) -p $(GENPATH) -o $(OUTGRAPH_NAME) $^
 
 .PHONY: clean run valgrind
 
 clean:
-	rm -f $(OUTGRAPH)
-	rm -f $(OUTSRC)
-	rm -f $(OUTINC)
+	rm -rf $(GENPATH)
 	rm -f $(PROJECT).out
 
 run:
