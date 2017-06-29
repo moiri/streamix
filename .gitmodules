@@ -16,6 +16,3 @@
 [submodule "igraph"]
 	path = igraph
 	url = https://github.com/igraph/igraph.git
-[submodule "streamix-sia-lang"]
-	path = streamix-sia-lang
-	url = git@github.com:moiri/streamix-sia-lang.git
