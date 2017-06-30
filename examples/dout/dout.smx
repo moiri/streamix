@@ -1,0 +1,4 @@
+A = box a( decoupled out x )
+B = box b( in x )
+
+connect A.B

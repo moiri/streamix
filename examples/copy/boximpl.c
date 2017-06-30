@@ -11,24 +11,19 @@ void msg_destroy( void* data )
     free( (char*)data );
 }
 
-void* msg_copy( void* data )
+void* msg_copy( void* data, size_t size )
 {
-    char* copy = malloc( sizeof( char ) );
+    char* copy = malloc( size );
     *copy = *( char* )data;
     return ( void* )copy;
 }
 
-void* msg_init()
-{
-    char* init = malloc( sizeof( char ) );
-    *init = '0';
-    return ( void* )init;
-}
-
 int a( void* handler )
 {
-    smx_msg_t* msg_x = SMX_MSG_CREATE( msg_init, msg_copy, msg_destroy );
-    *( char* )( msg_x->data ) = 'a';
+    char* data = malloc( sizeof( char ) );
+    *data = 'x';
+    smx_msg_t* msg_x = smx_msg_create( data, sizeof( char ), msg_copy,
+            msg_destroy );
     SMX_CHANNEL_WRITE( handler, a, x, msg_x );
     return SMX_BOX_TERMINATE;
 }

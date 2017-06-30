@@ -5,13 +5,6 @@
 #include <zlog.h>
 #include <unistd.h>
 
-void* msg_init()
-{
-    int* init = malloc( sizeof( int ) );
-    *init = 42;
-    return ( void* )init;
-}
-
 void msg_destroy( void* data )
 {
     free( ( int* )data );
@@ -35,7 +28,9 @@ int a( void* handler )
 
 int b( void* handler )
 {
-    smx_msg_t* msg = SMX_MSG_CREATE( msg_init, NULL, msg_destroy );
+    int* data = malloc( sizeof( int ) );
+    *data = 42;
+    smx_msg_t* msg = smx_msg_create( data, sizeof( int ), NULL, msg_destroy );
     sleep(1);
     SMX_CHANNEL_WRITE( handler, b, syn, msg );
 

@@ -8,12 +8,13 @@
 int a( void* handler )
 {
     char ch;
+    char* data;
     smx_msg_t* msg;
     if( read(STDIN_FILENO, &ch, 1) > 0 )
     {
-        msg = SMX_MSG_CREATE( NULL, NULL, NULL );
-        msg->data = malloc( sizeof( char ) );
-        *( char* )( msg->data ) = ch;
+        data = malloc( sizeof( char ) );
+        *data = ch;
+        msg = smx_msg_create( data, sizeof( char ), NULL, NULL );
         SMX_CHANNEL_WRITE( handler, a, x, msg );
         if( ch == ( char )27 )
             return SMX_BOX_TERMINATE;
@@ -29,7 +30,6 @@ int b( void* handler )
     dzlog_info( "b, received data_x: %c", *( char* )msg->data );
     if( *( char* )msg->data == ( char )27 )
         res = SMX_BOX_TERMINATE;
-    free( ( char* )msg->data );
     SMX_MSG_DESTROY( msg );
     sleep(1);
     return res;

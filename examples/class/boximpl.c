@@ -8,27 +8,22 @@ enum com_state_e { SYN, SYN_ACK, ACK, DONE };
 
 void msg_destroy( void* data )
 {
-    free( (char*)data );
+    free( ( int* )data );
 }
 
-void* msg_copy( void* data )
+void* msg_copy( void* data, size_t size )
 {
-    char* copy = malloc( sizeof( char ) );
-    *copy = *( char* )data;
+    int* copy = malloc( size );
+    *copy = *( int* )data;
     return ( void* )copy;
-}
-
-void* msg_init()
-{
-    char* init = malloc( sizeof( char ) );
-    *init = '0';
-    return ( void* )init;
 }
 
 int l( void* handler )
 {
-    smx_msg_t* msg_x = SMX_MSG_CREATE( msg_init, msg_copy, msg_destroy );
-    *( char* )( msg_x->data ) = '1';
+    int* data = malloc( sizeof( int ) );
+    *data = 1;
+    smx_msg_t* msg_x = smx_msg_create( data, sizeof( int ), msg_copy,
+            msg_destroy );
     SMX_CHANNEL_WRITE( handler, l, x, msg_x );
     return SMX_BOX_TERMINATE;
 }
@@ -37,8 +32,8 @@ int m( void* handler )
 {
     smx_msg_t* msg;
     msg = SMX_CHANNEL_READ( handler, m, x );
-    dzlog_info( "m, received: %c", *( char* )msg->data );
-    *( char* )msg->data = '2';
+    dzlog_info( "m, received: %d", *( int* )msg->data );
+    ( *( int* )msg->data )++;
     SMX_CHANNEL_WRITE( handler, m, x, msg );
     return SMX_BOX_TERMINATE;
 }
@@ -47,7 +42,7 @@ int r( void* handler )
 {
     smx_msg_t* msg;
     msg = SMX_CHANNEL_READ( handler, r, x );
-    dzlog_info( "r, received: %c", *( char* )msg->data );
+    dzlog_info( "r, received: %d", *( int* )msg->data );
     SMX_MSG_DESTROY( msg );
     return SMX_BOX_TERMINATE;
 }
