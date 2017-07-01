@@ -1,4 +1,4 @@
-A = box a( out x )
+A = box a( out x[5] )
 B = box b( in x )
 
 connect A.B
