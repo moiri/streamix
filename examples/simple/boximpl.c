@@ -26,14 +26,14 @@ int a( void* handler )
     SMX_CHANNEL_WRITE( handler, a, x, msg );
     *data2 = 'y';
     msg = smx_msg_create( data2, sizeof( char ), msg_copy, msg_destroy );
-    SMX_CHANNEL_WRITE( handler, a, y, msg );
+    SMX_CHANNEL_WRITE( handler, a, y_out, msg );
     return SMX_BOX_TERMINATE;
 }
 
 int b( void* handler )
 {
     smx_msg_t* msg;
-    msg = SMX_CHANNEL_READ( handler, b, y );
+    msg = SMX_CHANNEL_READ( handler, b, y_in );
     dzlog_info( "b, received data_y: %c", *( char* )msg->data );
     SMX_MSG_DESTROY( msg );
     msg = SMX_CHANNEL_READ( handler, b, x );

@@ -1,4 +1,4 @@
-A = box a( out x, out y )
-B = box b( in y, in x )
+A = box a( out x, out y(y_out) )
+B = box b( in y(y_in), in x )
 
 connect A.B
