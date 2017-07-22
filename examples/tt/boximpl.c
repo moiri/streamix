@@ -33,7 +33,10 @@ int b( void* handler )
 {
     smx_msg_t* msg;
     msg = SMX_CHANNEL_READ( handler, b, x );
-    dzlog_info( "received data_x: %c", *( char* )msg->data );
-    SMX_MSG_DESTROY( msg );
+    if( msg == NULL ) dzlog_info( "no data available on x" );
+    else {
+        dzlog_info( "received data_x: %c", *( char* )msg->data );
+        SMX_MSG_DESTROY( msg );
+    }
     return SMX_BOX_CONTINUE;
 }

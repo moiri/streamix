@@ -104,25 +104,18 @@ int a2( void* handler )
 
 int b( void* handler )
 {
-    int res1, res2;
     smx_msg_t* msg;
     msg = SMX_CHANNEL_READ( handler, b, x );
     if( msg != NULL ) {
-        res1 = SMX_BOX_CONTINUE;
         dzlog_info( "received data_x: %s", ( char* )msg->data );
         SMX_MSG_DESTROY( msg );
     }
-    else res1 = SMX_BOX_TERMINATE;
 
     msg = SMX_CHANNEL_READ( handler, b, y );
     if( msg != NULL ) {
-        res2 = SMX_BOX_CONTINUE;
         dzlog_info( "received data_y: %s", ( char* )msg->data );
         SMX_MSG_DESTROY( msg );
     }
-    else res2 = SMX_BOX_TERMINATE;
 
-    if( ( res1 == SMX_BOX_TERMINATE ) && ( res2 == SMX_BOX_TERMINATE ) )
-        return SMX_BOX_TERMINATE;
-    return SMX_BOX_CONTINUE;
+    return 0;
 }

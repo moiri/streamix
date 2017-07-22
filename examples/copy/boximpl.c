@@ -32,7 +32,7 @@ int b( void* handler )
 {
     smx_msg_t* msg;
     msg = SMX_CHANNEL_READ( handler, b, x );
-    dzlog_info( "b, received data_y: %c", *( char* )msg->data );
+    dzlog_info( "received data_y: %c", *( char* )msg->data );
     SMX_MSG_DESTROY( msg );
     return SMX_BOX_TERMINATE;
 }

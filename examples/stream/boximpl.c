@@ -25,12 +25,11 @@ int a( void* handler )
 int b( void* handler )
 {
     smx_msg_t* msg;
-    int res = SMX_BOX_CONTINUE;
     msg = SMX_CHANNEL_READ( handler, b, x );
-    dzlog_info( "b, received data_x: %c", *( char* )msg->data );
-    if( *( char* )msg->data == ( char )27 )
-        res = SMX_BOX_TERMINATE;
-    SMX_MSG_DESTROY( msg );
-    sleep(1);
-    return res;
+    if( msg != NULL ) {
+        dzlog_info( "received data_x: %c", *( char* )msg->data );
+        SMX_MSG_DESTROY( msg );
+        sleep(1);
+    }
+    return 0;
 }

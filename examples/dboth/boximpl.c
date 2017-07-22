@@ -11,7 +11,7 @@ int a1( void* handler )
     int* data = malloc( sizeof( int ) );
     *data = count;
     smx_msg_t* msg = smx_msg_create( ( void* )data, sizeof( int ), NULL, NULL );
-    dzlog_info( "a1, send data_x: %d", *( int* )msg->data );
+    dzlog_info( "send data_x: %d", *( int* )msg->data );
     SMX_CHANNEL_WRITE( handler, a1, x, msg );
     sleep(2);
     count++;
@@ -28,13 +28,13 @@ int a2( void* handler )
     *data1 = count;
     smx_msg_t* msg = smx_msg_create( ( void* )data1, sizeof( int ),
             NULL, NULL );
-    dzlog_info( "a2, send data_y: %d", *( int* )msg->data );
+    dzlog_info( "send data_y: %d", *( int* )msg->data );
     SMX_CHANNEL_WRITE( handler, a2, y, msg );
     count++;
     *data2 = count;
     msg = smx_msg_create( ( void* )data2, sizeof( int ),
             NULL, NULL );
-    dzlog_info( "a2, send data_y: %d", *( int* )msg->data );
+    dzlog_info( "send data_y: %d", *( int* )msg->data );
     SMX_CHANNEL_WRITE( handler, a2, y, msg );
     count++;
     sleep(2);
@@ -44,27 +44,24 @@ int a2( void* handler )
 
 int b( void* handler )
 {
-    int res = SMX_BOX_CONTINUE;
     smx_msg_t* msg;
-    dzlog_info( "b, reading from x" );
+    dzlog_info( "reading from x" );
     msg = SMX_CHANNEL_READ( handler, b, x );
     if( msg == NULL ) {
-        res = SMX_BOX_TERMINATE;
-        dzlog_info( "a1 has ended" );
+        dzlog_info( "no data available on x" );
     }
     else {
-        dzlog_info( "b, received data_x: %d", *( int* )msg->data );
+        dzlog_info( "received data_x: %d", *( int* )msg->data );
         smx_msg_destroy( msg, 1 );
     }
-    dzlog_info( "b, reading from y" );
+    dzlog_info( "reading from y" );
     msg = SMX_CHANNEL_READ( handler, b, y );
     if( msg == NULL ) {
-        res = SMX_BOX_TERMINATE;
-        dzlog_info( "a2 has ended" );
+        dzlog_info( "no data available on y" );
     }
     else {
-        dzlog_info( "b, received data_y: %d", *( int* )msg->data );
+        dzlog_info( "received data_y: %d", *( int* )msg->data );
         smx_msg_destroy( msg, 1 );
     }
-    return res;
+    return 0;
 }

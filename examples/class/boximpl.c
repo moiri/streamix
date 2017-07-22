@@ -25,7 +25,7 @@ int l( void* handler )
     smx_msg_t* msg_x = smx_msg_create( data, sizeof( int ), msg_copy,
             msg_destroy );
     SMX_CHANNEL_WRITE( handler, l, x, msg_x );
-    return SMX_BOX_TERMINATE;
+    return 0;
 }
 
 int m( void* handler )
@@ -35,7 +35,7 @@ int m( void* handler )
     dzlog_info( "m, received: %d", *( int* )msg->data );
     ( *( int* )msg->data )++;
     SMX_CHANNEL_WRITE( handler, m, x, msg );
-    return SMX_BOX_TERMINATE;
+    return 0;
 }
 
 int r( void* handler )
@@ -44,5 +44,5 @@ int r( void* handler )
     msg = SMX_CHANNEL_READ( handler, r, x );
     dzlog_info( "r, received: %d", *( int* )msg->data );
     SMX_MSG_DESTROY( msg );
-    return SMX_BOX_TERMINATE;
+    return 0;
 }
