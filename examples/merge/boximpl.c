@@ -22,6 +22,7 @@ int a( void* handler )
     *data = 'x';
     smx_msg_t* msg_x = smx_msg_create( data, sizeof( char ), msg_copy,
             msg_destroy );
+    dzlog_info( "send data: %c", *( char* )msg_x->data );
     SMX_CHANNEL_WRITE( handler, a, x, msg_x );
     return SMX_BOX_TERMINATE;
 }

@@ -22,7 +22,7 @@ int a( void* handler )
 {
     char* data = malloc( sizeof( char ) );
     *data = 'x';
-    smx_msg_t* msg_x = smx_msg_create( data, sizeof( char ), msg_copy,
+    smx_msg_t* msg_x = SMX_MSG_CREATE( data, sizeof( char ), msg_copy,
             msg_destroy );
     SMX_CHANNEL_WRITE( handler, a, x, msg_x );
     return SMX_BOX_TERMINATE;
