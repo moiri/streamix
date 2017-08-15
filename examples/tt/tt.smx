@@ -1,4 +1,8 @@
 A = box a( out x )
 B = box b( in x )
 
-connect A.tt[800ms](B)
+/* connect tt[1s](A.B) */
+connect tt[1s](A).tt[1s](B)
+/* connect tt[1s](A).tt[2s](B) */
+/* connect tt[1s](A).B */
+/* connect A.tt[1s](B) */

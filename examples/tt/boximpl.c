@@ -7,25 +7,28 @@
 
 void msg_destroy( void* data )
 {
-    free( (char*)data );
+    free( (int*)data );
 }
 
 void* msg_copy( void* data, size_t size )
 {
-    char* copy = malloc( size );
-    *copy = *( char* )data;
+    int* copy = malloc( size );
+    *copy = *( int* )data;
     return ( void* )copy;
 }
 
 int a( void* handler )
 {
-    char* data1 = malloc( sizeof( char ) );
+    static int count = 0;
+    int* data1 = malloc( sizeof( int ) );
     smx_msg_t* msg;
-    *data1 = 'x';
-    msg = smx_msg_create( data1, sizeof( char ), msg_copy, msg_destroy );
-    dzlog_info( "sending data_x: %c", *( char* )msg->data );
+    *data1 = count;
+    msg = smx_msg_create( data1, sizeof( int ), msg_copy, msg_destroy );
+    dzlog_info( "sending data_x: %d", *( int* )msg->data );
     SMX_CHANNEL_WRITE( handler, a, x, msg );
-    sleep(2);
+    count++;
+    if(count > 5 )
+        return SMX_BOX_TERMINATE;
     return SMX_BOX_CONTINUE;
 }
 
@@ -35,8 +38,8 @@ int b( void* handler )
     msg = SMX_CHANNEL_READ( handler, b, x );
     if( msg == NULL ) dzlog_info( "no data available on x" );
     else {
-        dzlog_info( "received data_x: %c", *( char* )msg->data );
+        dzlog_info( "received data_x: %d", *( int* )msg->data );
         SMX_MSG_DESTROY( msg );
     }
-    return SMX_BOX_CONTINUE;
+    return SMX_BOX_RETURN;
 }
