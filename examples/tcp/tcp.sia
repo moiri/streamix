@@ -1,0 +1,10 @@
+sia a {
+    0: syn?.1
+    1: syn_ack!.2
+    2: ack?.0
+}
+sia b {
+    0: syn!.1
+    1: syn_ack?.2
+    2: ack!.0
+}
