@@ -52,7 +52,7 @@ $(OUTSRC) $(OUTINC): $(OUTGRAPH)
 	smxsia -f $(FORMAT) -o $(SIAGRAPH) $(PNSCGRAPH) $(GENPATH)/sia/*
 
 $(OUTGRAPH): $(PROJECT).smx
-	smxc -f $(FORMAT) -p $(GENPATH) -o $(OUTGRAPH_NAME) $^
+	smxc -f $(FORMAT) -p $(GENPATH) $(SIA_INPUT) -o $(OUTGRAPH_NAME) $^
 
 
 .PHONY: clean run valgrind
