@@ -58,7 +58,7 @@ int a1( void* handler )
     dzlog_info( "send data_x: %s", ( char* )msg->data );
     SMX_CHANNEL_WRITE( handler, a1, x, msg );
 
-    return SMX_BOX_TERMINATE;
+    return SMX_NET_END;
 }
 
 int a2( void* handler )
@@ -99,7 +99,7 @@ int a2( void* handler )
     dzlog_info( "send data_y: %s", ( char* )msg->data );
     SMX_CHANNEL_WRITE( handler, a2, y, msg );
 
-    return SMX_BOX_TERMINATE;
+    return SMX_NET_END;
 }
 
 int b( void* handler )

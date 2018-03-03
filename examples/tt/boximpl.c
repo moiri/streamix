@@ -28,8 +28,8 @@ int a( void* handler )
     SMX_CHANNEL_WRITE( handler, a, x, msg );
     count++;
     if(count > 5 )
-        return SMX_BOX_TERMINATE;
-    return SMX_BOX_CONTINUE;
+        return SMX_NET_END;
+    return SMX_NET_CONTINUE;
 }
 
 int b( void* handler )
@@ -41,5 +41,5 @@ int b( void* handler )
         dzlog_info( "received data_x: %d", *( int* )msg->data );
         SMX_MSG_DESTROY( msg );
     }
-    return SMX_BOX_RETURN;
+    return SMX_NET_RETURN;
 }

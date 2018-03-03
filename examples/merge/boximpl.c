@@ -24,7 +24,7 @@ int a( void* handler )
             msg_destroy );
     dzlog_info( "send data: %c", *( char* )msg_x->data );
     SMX_CHANNEL_WRITE( handler, a, x, msg_x );
-    return SMX_BOX_TERMINATE;
+    return SMX_NET_END;
 }
 
 int b( void* handler )

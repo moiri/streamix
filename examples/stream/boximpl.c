@@ -17,9 +17,9 @@ int a( void* handler )
         msg = smx_msg_create( data, sizeof( char ), NULL, NULL );
         SMX_CHANNEL_WRITE( handler, a, x, msg );
         if( ch == ( char )27 )
-            return SMX_BOX_TERMINATE;
+            return SMX_NET_END;
     }
-    return SMX_BOX_CONTINUE;
+    return SMX_NET_CONTINUE;
 }
 
 int b( void* handler )

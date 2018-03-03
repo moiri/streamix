@@ -23,7 +23,7 @@ int a( void* handler )
     msg = SMX_CHANNEL_READ( handler, a, ack );
     dzlog_info( "a, received data: %d", *( int* )msg->data );
     SMX_MSG_DESTROY( msg );
-    return SMX_BOX_TERMINATE;
+    return SMX_NET_END;
 }
 
 int b( void* handler )
@@ -40,5 +40,5 @@ int b( void* handler )
 
     sleep(1);
     SMX_CHANNEL_WRITE( handler, b, ack, msg );
-    return SMX_BOX_TERMINATE;
+    return SMX_NET_END;
 }

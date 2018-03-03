@@ -15,8 +15,8 @@ int a1( void* handler )
     SMX_CHANNEL_WRITE( handler, a1, x, msg );
     sleep(2);
     count++;
-    if( count > 5 ) return SMX_BOX_TERMINATE;
-    return SMX_BOX_CONTINUE;
+    if( count > 5 ) return SMX_NET_END;
+    return SMX_NET_CONTINUE;
 }
 
 int a2( void* handler )
@@ -38,8 +38,8 @@ int a2( void* handler )
     SMX_CHANNEL_WRITE( handler, a2, y, msg );
     count++;
     sleep(2);
-    if( count > 9 ) return SMX_BOX_TERMINATE;
-    return SMX_BOX_CONTINUE;
+    if( count > 9 ) return SMX_NET_END;
+    return SMX_NET_CONTINUE;
 }
 
 int b( void* handler )

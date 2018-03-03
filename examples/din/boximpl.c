@@ -17,12 +17,12 @@ int a1( void* handler )
     SMX_CHANNEL_WRITE( handler, a1, x, msg );
     sleep(2);
     count++;
-    if( count > 5 ) return SMX_BOX_TERMINATE;
-    return SMX_BOX_CONTINUE;
+    if( count > 5 ) return SMX_NET_END;
+    return SMX_NET_CONTINUE;
 }
 
 int a2( void* handler )
-{
+{ 
     static int count = 0;
     int* data = malloc( sizeof( int ) );
     *data = count;
@@ -31,8 +31,8 @@ int a2( void* handler )
     SMX_CHANNEL_WRITE( handler, a2, y, msg );
     sleep(1);
     count++;
-    if( count > 9 ) return SMX_BOX_TERMINATE;
-    return SMX_BOX_CONTINUE;
+    if( count > 9 ) return SMX_NET_END;
+    return SMX_NET_CONTINUE;
 }
 
 int b( void* handler )
@@ -56,5 +56,5 @@ int b( void* handler )
         dzlog_info( "received data_y: %d", *( int* )msg->data );
         smx_msg_destroy( msg, 1 );
     }
-    return SMX_BOX_RETURN;
+    return SMX_NET_RETURN;
 }
