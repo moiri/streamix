@@ -1,0 +1,5 @@
+<app log="zlog.conf">
+    <A file="in/sample.txt" />
+    <B1 file="out/out_1.txt" />
+    <B2 file="out/out_2.txt" />
+</app>
