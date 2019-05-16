@@ -1,0 +1,1 @@
+../din/test.sh

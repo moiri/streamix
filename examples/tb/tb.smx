@@ -1,5 +1,5 @@
-A1 = box a1( out x )
-A2 = box a2( decoupled out y )
+A1 = box a( out x )
+A2 = box a( decoupled out y(x) )
 B = box b( in x, in y )
 
-connect (A1|A2).tb[1s 200ms](B)
+connect (A1|A2).tb[20ms](B)
