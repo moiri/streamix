@@ -1,0 +1,4 @@
+<app log="zlog.conf">
+    <A file="in/sample.txt" sleep="10000" />
+    <B file="out/out.txt" sleep="20000" />
+</app>

@@ -4,30 +4,129 @@
 #include <stdlib.h>
 #include <zlog.h>
 #include <unistd.h>
+#include <libxml/parser.h>
+#include <libxml/tree.h>
 
-
-int a( void* handler )
+int a( void* handler, void* state )
 {
-    static int count = 0;
-    int* data  = malloc( sizeof( int ) );
-    *data = count;
-    smx_msg_t* msg_x = smx_msg_create( data, sizeof( int ), NULL, NULL );
+    a_state_t* a_state = state;
+    int symb = fgetc( a_state->fp );
+    if( feof( a_state->fp ) )
+        return SMX_NET_END;
+    int* data = malloc( sizeof( int ) );
+    *data = symb;
+    smx_msg_t* msg_x = SMX_MSG_CREATE( data, sizeof( int ), NULL, NULL, NULL );
     SMX_CHANNEL_WRITE( handler, a, x, msg_x );
-    sleep(1);
-    count++;
-    if( count > 9 ) return SMX_NET_END;
-    return SMX_NET_CONTINUE;
+    usleep( a_state->sleep );
+    return SMX_NET_RETURN;
 }
 
-int b( void* handler )
+void a_cleanup( void* state )
+{
+    if( state == NULL ) return;
+    a_state_t* a_state = state;
+    fclose( a_state->fp );
+    free( a_state );
+}
+
+int a_init( void* handler, void** state )
+{
+    xmlNodePtr cur = SMX_NET_GET_CONF( handler );
+    xmlChar* name = NULL;
+    xmlChar* sleep = NULL;
+
+    if( cur == NULL )
+    {
+        SMX_LOG( handler, error, "invalid box configuartion" );
+        return 1;
+    }
+
+    name = xmlGetProp(cur, (const xmlChar*)"file");
+    if( name == NULL )
+    {
+        SMX_LOG( handler, error, "invalid box configuartion, no property 'file'" );
+        return 1;
+    }
+
+    sleep = xmlGetProp(cur, (const xmlChar*)"sleep");
+    if( name == NULL )
+    {
+        SMX_LOG( handler, error, "invalid box configuartion, no property 'sleep'" );
+        return 1;
+    }
+
+    a_state_t* a_state = malloc(sizeof(struct a_state_s));
+    a_state->sleep = atoi( (const char*)sleep );
+    a_state->fp = fopen( (const char*)name, "r" );
+    if( a_state->fp == NULL )
+    {
+        SMX_LOG( handler, error, "cannot open file %s", name );
+        return 1;
+    }
+    *state = a_state;
+    xmlFree(name);
+    xmlFree(sleep);
+    return 0;
+}
+
+int b( void* handler, void* state )
 {
     smx_msg_t* msg;
+    a_state_t* a_state = state;
     msg = SMX_CHANNEL_READ( handler, b, x );
-    if( msg == NULL ) dzlog_info( "no data available on x" );
-    else {
-        dzlog_info( "received data_x: %d", *( int* )msg->data );
+    if( msg != NULL )
+    {
+        fputc( *( int* )msg->data, a_state->fp );
         SMX_MSG_DESTROY( msg );
     }
-    sleep(2);
+    usleep( a_state->sleep );
+    return SMX_NET_RETURN;
+}
+
+void b_cleanup( void* state )
+{
+    if( state == NULL ) return;
+    a_state_t* a_state = state;
+    fclose( a_state->fp );
+    free( a_state );
+}
+
+int b_init( void* handler, void** state )
+{
+    xmlNodePtr cur = SMX_NET_GET_CONF( handler );
+    xmlChar* name = NULL;
+    xmlChar* sleep = NULL;
+
+    if( cur == NULL )
+    {
+        SMX_LOG( handler, error, "invalid box configuartion" );
+        return 1;
+    }
+
+    name = xmlGetProp(cur, (const xmlChar*)"file");
+    if( name == NULL )
+    {
+        SMX_LOG( handler, error, "invalid box configuartion, no property 'file'" );
+        return 1;
+    }
+
+    sleep = xmlGetProp(cur, (const xmlChar*)"sleep");
+    if( name == NULL )
+    {
+        SMX_LOG( handler, error, "invalid box configuartion, no property 'sleep'" );
+        return 1;
+    }
+
+    a_state_t* a_state = malloc(sizeof(struct a_state_s));
+    a_state->sleep = atoi( (const char*)sleep );
+    a_state->fp = fopen( (const char*)name, "w" );
+    if( a_state->fp == NULL )
+    {
+        SMX_LOG( handler, error, "cannot open file %s", name );
+        return 1;
+    }
+    *state = a_state;
+    xmlFree(name);
+    xmlFree(sleep);
     return 0;
 }
