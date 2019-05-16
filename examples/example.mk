@@ -22,6 +22,7 @@ INCLUDES = $(OUTINC) \
 		   boximpl.h
 
 INCLUDES_DIR = -I/usr/local/ \
+			   -I/usr/include/libxml2 \
 			   -I$(GENPATH) \
 			   -I.
 
@@ -29,6 +30,7 @@ LINK_DIR = -L/usr/local/lib
 
 LINK_FILE = -lsmxrts \
 			-lpthread \
+			-lxml2 \
 			-lzlog
 
 
@@ -60,9 +62,15 @@ $(OUTGRAPH): $(PROJECT).smx
 clean:
 	rm -rf $(GENPATH)
 	rm -f $(PROJECT).out
+	rm -f out/*
+	rm -f log/*
 
 run:
 	./$(PROJECT).out
+
+test: run
+test:
+	./test.sh
 
 valgrind:
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -v ./$(PROJECT).out
