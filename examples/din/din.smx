@@ -1,5 +1,5 @@
-A1 = box a1( out x )
-A2 = box a2( out y )
+A1 = box a( out x )
+A2 = box a( out y(x) )
 B = box b( decoupled in x, in y )
 
 connect (A1|A2).B
