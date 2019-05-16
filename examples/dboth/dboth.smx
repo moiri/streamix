@@ -1,5 +1,0 @@
-A1 = box a1( out x )
-A2 = box a2( decoupled out y )
-B = box b( in x, decoupled in y )
-
-connect (A1|A2).B
