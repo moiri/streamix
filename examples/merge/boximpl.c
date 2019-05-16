@@ -8,14 +8,15 @@
 int a( void* handler, void* state )
 {
     a_state_t* a_state = state;
+    int symb = fgetc( a_state->fp );
+    if( feof( a_state->fp ) )
+        return SMX_NET_END;
     merge_msg_t* data = malloc(sizeof(struct merge_msg_s));
-    data->data = fgetc( a_state->fp );
+    data->data = symb;
     data->id = a_state->idx;
     smx_msg_t* msg_x = SMX_MSG_CREATE( data, sizeof( struct merge_msg_s ), NULL,
             NULL, NULL );
     SMX_CHANNEL_WRITE( handler, a, x, msg_x );
-    if( feof( a_state->fp ) )
-        return SMX_NET_END;
     return SMX_NET_RETURN;
 }
 
@@ -52,7 +53,7 @@ int a_init( void* handler, void** state )
         return 1;
     }
 
-    a_state_t* a_state = malloc(sizeof(struct b_state_s));
+    a_state_t* a_state = malloc(sizeof(struct a_state_s));
     a_state->idx = atoi( (const char*)idx );
     a_state->fp = fopen( (const char*)name, "r" );
     if( a_state->fp == NULL )

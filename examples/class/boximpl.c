@@ -8,12 +8,13 @@
 
 int l( void* handler, void* state )
 {
-    int* data = malloc( sizeof( int ) );
-    *data = fgetc( state );
-    smx_msg_t* msg_x = SMX_MSG_CREATE( data, sizeof( int ), NULL, NULL, NULL );
-    SMX_CHANNEL_WRITE( handler, l, x, msg_x );
+    int symb = fgetc( state );
     if( feof( state ) )
         return SMX_NET_END;
+    int* data = malloc( sizeof( int ) );
+    *data = symb;
+    smx_msg_t* msg_x = SMX_MSG_CREATE( data, sizeof( int ), NULL, NULL, NULL );
+    SMX_CHANNEL_WRITE( handler, l, x, msg_x );
     return SMX_NET_RETURN;
 }
 
