@@ -1,0 +1,4 @@
+<app log="zlog.conf">
+    <L file="in/sample.txt" />
+    <R file="out/out.txt" />
+</app>
