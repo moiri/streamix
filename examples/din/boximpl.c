@@ -23,6 +23,7 @@ int a( void* handler, void* state )
 
 void a_cleanup( void* state )
 {
+    if( state == NULL ) return;
     a_state_t* a_state = state;
     fclose( a_state->fp );
     free( a_state );

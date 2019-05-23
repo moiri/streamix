@@ -59,17 +59,18 @@ $(OUTGRAPH): $(PROJECT).smx
 
 .PHONY: clean run valgrind
 
-clean:
+clean: clean_run
 	rm -rf $(GENPATH)
 	rm -f $(PROJECT).out
+
+clean_run:
 	rm -f out/*
 	rm -f log/*
 
 run:
 	./$(PROJECT).out
 
-test: run
-test:
+test: clean_run run
 	./test.sh
 
 valgrind:

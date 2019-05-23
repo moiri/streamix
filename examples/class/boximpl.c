@@ -57,8 +57,9 @@ int m( void* handler, void* state )
     (void)(state);
     smx_msg_t* msg;
     msg = SMX_CHANNEL_READ( handler, m, x );
+    if( msg == NULL ) return SMX_NET_END;
     SMX_CHANNEL_WRITE( handler, m, x, msg );
-    return 0;
+    return SMX_NET_RETURN;
 }
 
 void m_cleanup( void* state )
