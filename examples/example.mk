@@ -22,15 +22,22 @@ INCLUDES = $(OUTINC) \
 		   boximpl.h
 
 INCLUDES_DIR = -I/usr/local/ \
+			   -I/usr/local/include/libsmx \
 			   -I/usr/include/libxml2 \
+			   -I/usr/include/libmongoc-1.0 \
+			   -I/usr/include/libbson-1.0 \
 			   -I$(GENPATH) \
 			   -I.
 
-LINK_DIR = -L/usr/local/lib
+LINK_DIR = -L/usr/local/lib \
+		   -L/usr/local/lib/libsmx
 
 LINK_FILE = -lsmxrts \
 			-lpthread \
 			-lxml2 \
+			-lsmxmongo \
+			-lbson \
+			-lmongoc \
 			-lzlog
 
 
@@ -42,6 +49,8 @@ all: $(PROJECT).out
 
 smx: $(OUTSRC) $(OUTINC)
 
+sia: $(SIAGRAPH)
+
 # compile with dot stuff and debug flags
 debug: CFLAGS += $(DEBUG_FLAGS)
 debug: $(PROJECT).out
@@ -49,9 +58,11 @@ debug: $(PROJECT).out
 $(PROJECT).out: $(SOURCES) $(INCLUDES)
 	$(CC) $(CFLAGS) $(SOURCES) $(INCLUDES_DIR) $(LINK_DIR) $(LINK_FILE) -o $@
 
-$(OUTSRC) $(OUTINC): $(OUTGRAPH)
+$(SIAGRAPH): $(PNSCGRAPH)
+	smxsia -f $(FORMAT) -o $@ $^ $(GENPATH)/sia/*
+
+$(PNSCGRAPH) $(OUTSRC) $(OUTINC): $(OUTGRAPH)
 	graph2c $^ -p $(GENPATH) -f $(FORMAT)
-	smxsia -f $(FORMAT) -o $(SIAGRAPH) $(PNSCGRAPH) $(GENPATH)/sia/*
 
 $(OUTGRAPH): $(PROJECT).smx
 	smxc -f $(FORMAT) -p $(GENPATH) $(SIA_INPUT) -o $(OUTGRAPH_NAME) $^

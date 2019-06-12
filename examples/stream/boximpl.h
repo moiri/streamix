@@ -1,12 +1,12 @@
 #ifndef BOXIMPL_H
 #define BOXIMPL_H
 
-void* a_init( void* );
-void a_cleanup( void* );
-int a( void*, void* );
+int a( void* h, void* state );
+void a_cleanup( void* h, void* state );
+int a_init( void* h, void** state );
 
-void* b_init( void* );
-void b_cleanup( void* );
-int b( void*, void* );
+int b( void* h, void* state );
+void b_cleanup( void* h, void* state );
+int b_init( void* h, void** state );
 
 #endif /* ifndef BOXIMPL_H */

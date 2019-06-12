@@ -12,7 +12,7 @@ EXAMPLES = $(EXAMPLE_DIR)/copy/.\
 		   $(EXAMPLE_DIR)/class/.\
 		   $(EXAMPLE_DIR)/din/.\
 		   $(EXAMPLE_DIR)/dout/.\
-		   $(EXAMPLE_DIR)/tb/.\
+		   $(EXAMPLE_DIR)/tb/. \
 		   $(EXAMPLE_DIR)/tt/.
 
 PROJECTS = $(C_DIR) $(RTS_DIR) $(GRAPH_DIR) $(SIA_DIR)

@@ -9,11 +9,11 @@ typedef struct a_state_s
     int   sleep;
 } a_state_t;
 
-int a( void* handler, void* state );
-void a_cleanup( void* state );
-int a_init( void* handler, void** state );
-int b( void* handler, void* state );
-void b_cleanup( void* state );
-int b_init( void* handler, void** state );
+int a( void* h, void* state );
+void a_cleanup( void* h, void* state );
+int a_init( void* h, void** state );
+int b( void* h, void* state );
+void b_cleanup( void* h, void* state );
+int b_init( void* h, void** state );
 
 #endif /* ifndef BOXIMPL_H */

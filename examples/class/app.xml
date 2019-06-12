@@ -1,4 +1,8 @@
 <app log="zlog.conf">
+    <smx_rn />
+    <smx_tf />
     <L file="in/sample.txt" />
     <R file="out/out.txt" />
+    <M />
+    <Profiler uri="mongodb://localhost:27017" db="smx" comit_rate="1" />
 </app>

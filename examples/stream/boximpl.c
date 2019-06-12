@@ -5,17 +5,7 @@
 #include <zlog.h>
 #include <unistd.h>
 
-void* a_init( void* handler )
-{
-    (void)(handler);
-    printf( "enter any list of characters, followed by return\n" );
-    printf( "ESC, followed by return will terminate the application\n" );
-    return NULL;
-}
-
-void a_cleanup( void* state ) { (void)(state); }
-
-int a( void* handler, void* state )
+int a( void* h, void* state )
 {
     char ch;
     char* data;
@@ -25,31 +15,51 @@ int a( void* handler, void* state )
     {
         data = malloc( sizeof( char ) );
         *data = ch;
-        msg = SMX_MSG_CREATE( data, sizeof( char ), NULL, NULL, NULL );
-        SMX_CHANNEL_WRITE( handler, a, x, msg );
+        msg = SMX_MSG_CREATE( h, data, sizeof( char ), NULL, NULL, NULL );
+        SMX_CHANNEL_WRITE( h, a, x, msg );
         if( ch == ( char )27 )
             return SMX_NET_END;
     }
     return SMX_NET_CONTINUE;
 }
 
-void* b_init( void* handler )
+void a_cleanup( void* h, void* state )
 {
-    (void)(handler);
-    return NULL;
+    ( void )( h );
+    ( void )( state );
 }
 
-void b_cleanup( void* state ) { (void)(state); }
+int a_init( void* h, void** state )
+{
+    ( void )( h );
+    ( void )( state );
+    printf( "enter any list of characters, followed by return\n" );
+    printf( "ESC, followed by return will terminate the application\n" );
+    return 0;
+}
 
-int b( void* handler, void* state )
+int b( void* h, void* state )
 {
     smx_msg_t* msg;
     (void)(state);
-    msg = SMX_CHANNEL_READ( handler, b, x );
+    msg = SMX_CHANNEL_READ( h, b, x );
     if( msg != NULL ) {
         printf( "received data: %c\n", *( char* )msg->data );
-        SMX_MSG_DESTROY( msg );
+        SMX_MSG_DESTROY( h, msg );
         sleep(1);
     }
+    return 0;
+}
+
+void b_cleanup( void* h, void* state )
+{
+    ( void )( h );
+    ( void )( state );
+}
+
+int b_init( void* h, void** state )
+{
+    ( void )( h );
+    ( void )( state );
     return 0;
 }
