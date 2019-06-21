@@ -58,12 +58,12 @@ flags = [
 # For a C project, you would set this to 'c' instead of 'c++'.
 '-x', 'c',
 '-isystem', '/usr/local/include',
-'-isystem', '/usr/local/include/libsmx',
-'-isystem', '/usr/target/include',
+'-isystem', '/opt/smx/include',
 '-isystem', '/usr/include',
 '-I', '.',
 '-I', './include',
-'-I', './build',
+'-I', './boxes/a/include',
+'-I', './boxes/b/include',
 ]
 
 

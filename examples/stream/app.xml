@@ -1,1 +1,4 @@
-<app log="zlog.conf" />
+<app name="stream" log="app.zlog">
+    <A profiler="off" />
+    <B profiler="off" />
+</app>

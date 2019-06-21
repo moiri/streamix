@@ -12,33 +12,31 @@ OUTGRAPH = $(GENPATH)/$(OUTGRAPH_NAME)
 SIAGRAPH = $(GENPATH)/$(SIAGRAPH_NAME)
 PNSCGRAPH = $(GENPATH)/$(PNSCGRAPH_NAME)
 OUTSRC = $(GENPATH)/$(PROJECT).c\
-		 $(GENPATH)/$(BOXGEN).c
+	$(GENPATH)/$(BOXGEN).c
 OUTINC = $(GENPATH)/$(BOXGEN).h
 
-SOURCES = $(OUTSRC) \
-		  boximpl.c
+SOURCES = $(OUTSRC)
 
-INCLUDES = $(OUTINC) \
-		   boximpl.h
+INCLUDES = $(OUTINC)
 
 INCLUDES_DIR = -I/usr/local/ \
-			   -I/usr/local/include/libsmx \
-			   -I/usr/include/libxml2 \
-			   -I/usr/include/libmongoc-1.0 \
-			   -I/usr/include/libbson-1.0 \
-			   -I$(GENPATH) \
-			   -I.
+	-I/usr/local/include/libsmx \
+	-I/usr/include/libxml2 \
+	-I/usr/include/libmongoc-1.0 \
+	-I/usr/include/libbson-1.0 \
+	-I$(GENPATH) \
+	-I.
 
 LINK_DIR = -L/usr/local/lib \
-		   -L/usr/local/lib/libsmx
+	-L/usr/local/lib/libsmx
 
 LINK_FILE = -lsmxrts \
-			-lpthread \
-			-lxml2 \
-			-lsmxmongo \
-			-lbson \
-			-lmongoc \
-			-lzlog
+	-lpthread \
+	-lxml2 \
+	-lsmxmongo \
+	-lbson \
+	-lmongoc \
+	-lzlog
 
 
 CC = gcc

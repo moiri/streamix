@@ -1,0 +1,88 @@
+[2019-06-21 08:59:30.930944] [NOTICE] [main] start thread main
+[2019-06-21 08:59:30.931153] [NOTICE] [net_A_0] init net
+[2019-06-21 08:59:30.931215] [NOTICE] [net_B2_2] init net
+[2019-06-21 08:59:30.931274] [NOTICE] [net_B1_1] init net
+[2019-06-21 08:59:30.931371] [NOTICE] [net_smx_rn_3] init net
+[2019-06-21 08:59:30.931396] [NOTICE] [net_smx_rn_3] start net
+[2019-06-21 08:59:30.931414] [NOTICE] [net_A_0] start net
+[2019-06-21 08:59:30.931431] [NOTICE] [net_B2_2] start net
+[2019-06-21 08:59:30.931490] [NOTICE] [net_B1_1] start net
+[2019-06-21 08:59:31.188345] [NOTICE] [net_A_0] send termination notice to neighbours
+[2019-06-21 08:59:31.188400] [NOTICE] [net_A_0] cleanup net
+[2019-06-21 08:59:31.188415] [NOTICE] [net_A_0] terminate net
+[2019-06-21 08:59:31.188440] [NOTICE] [net_smx_rn_3] send termination notice to neighbours
+[2019-06-21 08:59:31.188478] [NOTICE] [net_smx_rn_3] cleanup net
+[2019-06-21 08:59:31.188487] [NOTICE] [net_B2_2] send termination notice to neighbours
+[2019-06-21 08:59:31.188499] [NOTICE] [net_B1_1] send termination notice to neighbours
+[2019-06-21 08:59:31.188510] [NOTICE] [net_smx_rn_3] terminate net
+[2019-06-21 08:59:31.188523] [NOTICE] [net_B2_2] cleanup net
+[2019-06-21 08:59:31.188530] [NOTICE] [net_B1_1] cleanup net
+[2019-06-21 08:59:31.188541] [NOTICE] [net_B2_2] terminate net
+[2019-06-21 08:59:31.188546] [NOTICE] [net_B1_1] terminate net
+[2019-06-21 08:59:31.188578] [NOTICE] [main] end main thread
+[2019-06-21 10:49:01.589775] [NOTICE] [main] start thread main
+[2019-06-21 10:49:01.589962] [NOTICE] [net_A_0] init net
+[2019-06-21 10:49:01.590041] [NOTICE] [net_B1_1] init net
+[2019-06-21 10:49:01.590090] [NOTICE] [net_B2_2] init net
+[2019-06-21 10:49:01.590139] [NOTICE] [net_smx_rn_3] init net
+[2019-06-21 10:49:01.590154] [NOTICE] [net_A_0] start net
+[2019-06-21 10:49:01.590174] [NOTICE] [net_smx_rn_3] start net
+[2019-06-21 10:49:01.590185] [NOTICE] [net_B2_2] start net
+[2019-06-21 10:49:01.590197] [NOTICE] [net_B1_1] start net
+[2019-06-21 10:49:01.814692] [NOTICE] [net_A_0] send termination notice to neighbours
+[2019-06-21 10:49:01.814737] [NOTICE] [net_A_0] cleanup net
+[2019-06-21 10:49:01.814754] [NOTICE] [net_A_0] terminate net
+[2019-06-21 10:49:01.814783] [NOTICE] [net_smx_rn_3] send termination notice to neighbours
+[2019-06-21 10:49:01.814818] [NOTICE] [net_B2_2] send termination notice to neighbours
+[2019-06-21 10:49:01.814840] [NOTICE] [net_smx_rn_3] cleanup net
+[2019-06-21 10:49:01.814846] [NOTICE] [net_B2_2] cleanup net
+[2019-06-21 10:49:01.814853] [NOTICE] [net_B1_1] send termination notice to neighbours
+[2019-06-21 10:49:01.814864] [NOTICE] [net_smx_rn_3] terminate net
+[2019-06-21 10:49:01.814874] [NOTICE] [net_B2_2] terminate net
+[2019-06-21 10:49:01.814884] [NOTICE] [net_B1_1] cleanup net
+[2019-06-21 10:49:01.814901] [NOTICE] [net_B1_1] terminate net
+[2019-06-21 10:49:01.814932] [NOTICE] [main] end main thread
+[2019-06-21 11:20:39.103293] [NOTICE] [main] start thread main
+[2019-06-21 11:20:39.103495] [NOTICE] [net_A_0] init net
+[2019-06-21 11:20:39.103556] [NOTICE] [net_B1_1] init net
+[2019-06-21 11:20:39.103599] [NOTICE] [net_B2_2] init net
+[2019-06-21 11:20:39.103640] [NOTICE] [net_smx_rn_3] init net
+[2019-06-21 11:20:39.103653] [NOTICE] [net_smx_rn_3] start net
+[2019-06-21 11:20:39.103665] [NOTICE] [net_B2_2] start net
+[2019-06-21 11:20:39.103683] [NOTICE] [net_A_0] start net
+[2019-06-21 11:20:39.103692] [NOTICE] [net_B1_1] start net
+[2019-06-21 11:20:39.296555] [NOTICE] [net_A_0] send termination notice to neighbours
+[2019-06-21 11:20:39.296598] [NOTICE] [net_A_0] cleanup net
+[2019-06-21 11:20:39.296615] [NOTICE] [net_smx_rn_3] send termination notice to neighbours
+[2019-06-21 11:20:39.296627] [NOTICE] [net_A_0] terminate net
+[2019-06-21 11:20:39.296653] [NOTICE] [net_smx_rn_3] cleanup net
+[2019-06-21 11:20:39.296664] [NOTICE] [net_B2_2] send termination notice to neighbours
+[2019-06-21 11:20:39.296676] [NOTICE] [net_B1_1] send termination notice to neighbours
+[2019-06-21 11:20:39.296691] [NOTICE] [net_smx_rn_3] terminate net
+[2019-06-21 11:20:39.296705] [NOTICE] [net_B2_2] cleanup net
+[2019-06-21 11:20:39.296720] [NOTICE] [net_B1_1] cleanup net
+[2019-06-21 11:20:39.296728] [NOTICE] [net_B2_2] terminate net
+[2019-06-21 11:20:39.296735] [NOTICE] [net_B1_1] terminate net
+[2019-06-21 11:20:39.296770] [NOTICE] [main] end main thread
+[2019-06-21 11:23:39.294339] [NOTICE] [main] start thread main
+[2019-06-21 11:23:39.294466] [NOTICE] [net_B1_1] init net
+[2019-06-21 11:23:39.294543] [NOTICE] [net_B2_2] init net
+[2019-06-21 11:23:39.294586] [NOTICE] [net_A_0] init net
+[2019-06-21 11:23:39.294664] [NOTICE] [net_smx_rn_3] init net
+[2019-06-21 11:23:39.294681] [NOTICE] [net_smx_rn_3] start net
+[2019-06-21 11:23:39.294690] [NOTICE] [net_B1_1] start net
+[2019-06-21 11:23:39.294719] [NOTICE] [net_A_0] start net
+[2019-06-21 11:23:39.294737] [NOTICE] [net_B2_2] start net
+[2019-06-21 11:23:39.475842] [NOTICE] [net_A_0] send termination notice to neighbours
+[2019-06-21 11:23:39.475891] [NOTICE] [net_A_0] cleanup net
+[2019-06-21 11:23:39.475906] [NOTICE] [net_A_0] terminate net
+[2019-06-21 11:23:39.475926] [NOTICE] [net_smx_rn_3] send termination notice to neighbours
+[2019-06-21 11:23:39.475975] [NOTICE] [net_smx_rn_3] cleanup net
+[2019-06-21 11:23:39.475986] [NOTICE] [net_B2_2] send termination notice to neighbours
+[2019-06-21 11:23:39.475996] [NOTICE] [net_B1_1] send termination notice to neighbours
+[2019-06-21 11:23:39.476003] [NOTICE] [net_smx_rn_3] terminate net
+[2019-06-21 11:23:39.476016] [NOTICE] [net_B2_2] cleanup net
+[2019-06-21 11:23:39.476024] [NOTICE] [net_B1_1] cleanup net
+[2019-06-21 11:23:39.476038] [NOTICE] [net_B2_2] terminate net
+[2019-06-21 11:23:39.476044] [NOTICE] [net_B1_1] terminate net
+[2019-06-21 11:23:39.476079] [NOTICE] [main] end main thread

@@ -1,6 +1,6 @@
 M = box m( up in x, down out x )
 L = box l( out x )
 R = box r( in x )
-Profiler = extern box smx_mongo( profiler data[100], in ui open )
 
+Profiler = extern box smx_mongo( profiler data[100], in ui open )
 connect L.M.M.R|Profiler

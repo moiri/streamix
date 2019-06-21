@@ -1,5 +1,6 @@
-<app log="zlog.conf">
-    <A1 file="in/sample1.txt" idx="0" />
-    <A2 file="in/sample2.txt" idx="1" />
-    <B file1="out/out1.txt" file2="out/out2.txt" idx1="0" idx2="1" />
+<app name="merge" log="app.zlog">
+    <A1 file="in/sample1.txt" idx="0" profiler="off" />
+    <A2 file="in/sample2.txt" idx="1" profiler="off" />
+    <smx_rn profiler="off" />
+    <B file1="out/out1.txt" file2="out/out2.txt" idx1="0" idx2="1" profiler="off" />
 </app>

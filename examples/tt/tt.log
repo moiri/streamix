@@ -1,0 +1,180 @@
+[2019-06-21 11:12:52.328359] [NOTICE] [main] start thread main
+[2019-06-21 11:12:52.328592] [NOTICE] [net_L_0] init net
+[2019-06-21 11:12:52.328648] [NOTICE] [net_smx_tf_6] init net
+[2019-06-21 11:12:52.328665] [NOTICE] [net_smx_tf_6] profiler enabled
+[2019-06-21 11:12:52.328672] [NOTICE] [net_smx_tf_6] start net
+[2019-06-21 11:12:52.328709] [NOTICE] [net_M_1] init net
+[2019-06-21 11:12:52.328891] [NOTICE] [net_M_2] init net
+[2019-06-21 11:12:52.328945] [NOTICE] [net_R_3] init net
+[2019-06-21 11:12:52.329003] [NOTICE] [net_smx_profiler_5] init net
+[2019-06-21 11:12:52.329091] [NOTICE] [net_Profiler_4] init net
+[2019-06-21 11:12:52.329175] [NOTICE] [net_M_1] start net
+[2019-06-21 11:12:52.329191] [NOTICE] [net_smx_tf_6] start net
+[2019-06-21 11:12:52.329208] [NOTICE] [net_L_0] start net
+[2019-06-21 11:12:52.329267] [NOTICE] [net_R_3] start net
+[2019-06-21 11:12:52.329286] [NOTICE] [net_M_2] start net
+[2019-06-21 11:12:52.329339] [NOTICE] [net_smx_profiler_5] start net
+[2019-06-21 11:12:52.329352] [NOTICE] [net_Profiler_4] start net
+[2019-06-21 11:12:52.578156] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:12:52.578856] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:12:53.017207] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:12:53.017779] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:12:54.022058] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:12:54.633494] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:12:54.634127] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:12:54.634948] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:12:55.021101] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:12:55.611893] [NOTICE] [net_L_0] send termination notice to neighbours
+[2019-06-21 11:12:55.611950] [NOTICE] [net_L_0] cleanup net
+[2019-06-21 11:12:55.611970] [NOTICE] [net_L_0] terminate net
+[2019-06-21 11:12:55.613805] [NOTICE] [net_M_1] send termination notice to neighbours
+[2019-06-21 11:12:55.613893] [NOTICE] [net_M_1] cleanup net
+[2019-06-21 11:12:55.613914] [NOTICE] [net_M_1] terminate net
+[2019-06-21 11:12:55.614776] [NOTICE] [net_M_2] send termination notice to neighbours
+[2019-06-21 11:12:55.614937] [NOTICE] [net_M_2] cleanup net
+[2019-06-21 11:12:55.614963] [NOTICE] [net_M_2] terminate net
+[2019-06-21 11:12:55.615768] [NOTICE] [net_R_3] send termination notice to neighbours
+[2019-06-21 11:12:55.615824] [NOTICE] [net_R_3] cleanup net
+[2019-06-21 11:12:55.615908] [NOTICE] [net_R_3] terminate net
+[2019-06-21 11:12:55.616718] [NOTICE] [net_smx_tf_6] send termination notice to neighbours
+[2019-06-21 11:12:55.616755] [NOTICE] [net_smx_tf_6] cleanup net
+[2019-06-21 11:12:55.616776] [NOTICE] [net_smx_tf_6] terminate net
+[2019-06-21 11:12:55.616810] [NOTICE] [net_smx_profiler_5] send termination notice to neighbours
+[2019-06-21 11:12:55.616866] [NOTICE] [net_smx_profiler_5] cleanup net
+[2019-06-21 11:12:55.616894] [NOTICE] [net_Profiler_4] send termination notice to neighbours
+[2019-06-21 11:12:55.616932] [NOTICE] [net_smx_profiler_5] terminate net
+[2019-06-21 11:12:55.616977] [NOTICE] [net_Profiler_4] cleanup net
+[2019-06-21 11:12:55.627618] [NOTICE] [net_Profiler_4] terminate net
+[2019-06-21 11:12:55.628104] [NOTICE] [main] end main thread
+[2019-06-21 11:19:30.498356] [NOTICE] [main] start thread main
+[2019-06-21 11:19:30.499137] [NOTICE] [net_smx_tf_6] init net
+[2019-06-21 11:19:30.499226] [NOTICE] [net_smx_tf_6] profiler enabled
+[2019-06-21 11:19:30.499294] [NOTICE] [net_L_0] init net
+[2019-06-21 11:19:30.499329] [NOTICE] [net_smx_tf_6] start net
+[2019-06-21 11:19:30.499401] [NOTICE] [net_M_1] init net
+[2019-06-21 11:19:30.499608] [NOTICE] [net_M_2] init net
+[2019-06-21 11:19:30.499786] [NOTICE] [net_R_3] init net
+[2019-06-21 11:19:30.499936] [NOTICE] [net_smx_profiler_5] init net
+[2019-06-21 11:19:30.500039] [NOTICE] [net_Profiler_4] init net
+[2019-06-21 11:19:30.506953] [NOTICE] [net_M_1] start net
+[2019-06-21 11:19:30.507051] [NOTICE] [net_smx_tf_6] start net
+[2019-06-21 11:19:30.507102] [NOTICE] [net_L_0] start net
+[2019-06-21 11:19:30.507287] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:19:30.507400] [NOTICE] [net_M_2] start net
+[2019-06-21 11:19:30.507538] [NOTICE] [net_R_3] start net
+[2019-06-21 11:19:30.507616] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:19:30.507856] [NOTICE] [net_Profiler_4] start net
+[2019-06-21 11:19:30.507926] [NOTICE] [net_smx_profiler_5] start net
+[2019-06-21 11:19:32.020979] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:19:32.021801] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:19:33.010271] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:19:33.010870] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:19:33.021008] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:19:33.021411] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:19:33.764550] [NOTICE] [net_L_0] send termination notice to neighbours
+[2019-06-21 11:19:33.765150] [NOTICE] [net_L_0] cleanup net
+[2019-06-21 11:19:33.765313] [NOTICE] [net_L_0] terminate net
+[2019-06-21 11:19:33.766604] [NOTICE] [net_M_1] send termination notice to neighbours
+[2019-06-21 11:19:33.766723] [NOTICE] [net_M_1] cleanup net
+[2019-06-21 11:19:33.766762] [NOTICE] [net_M_1] terminate net
+[2019-06-21 11:19:33.767456] [NOTICE] [net_M_2] send termination notice to neighbours
+[2019-06-21 11:19:33.767483] [NOTICE] [net_M_2] cleanup net
+[2019-06-21 11:19:33.767494] [NOTICE] [net_M_2] terminate net
+[2019-06-21 11:19:33.768419] [NOTICE] [net_R_3] send termination notice to neighbours
+[2019-06-21 11:19:33.768481] [NOTICE] [net_R_3] cleanup net
+[2019-06-21 11:19:33.768564] [NOTICE] [net_R_3] terminate net
+[2019-06-21 11:19:33.769445] [NOTICE] [net_smx_tf_6] send termination notice to neighbours
+[2019-06-21 11:19:33.769494] [NOTICE] [net_smx_tf_6] cleanup net
+[2019-06-21 11:19:33.769523] [NOTICE] [net_smx_tf_6] terminate net
+[2019-06-21 11:19:33.769560] [NOTICE] [net_smx_profiler_5] send termination notice to neighbours
+[2019-06-21 11:19:33.769628] [NOTICE] [net_smx_profiler_5] cleanup net
+[2019-06-21 11:19:33.769672] [NOTICE] [net_Profiler_4] send termination notice to neighbours
+[2019-06-21 11:19:33.769743] [NOTICE] [net_smx_profiler_5] terminate net
+[2019-06-21 11:19:33.769784] [NOTICE] [net_Profiler_4] cleanup net
+[2019-06-21 11:19:33.783885] [NOTICE] [net_Profiler_4] terminate net
+[2019-06-21 11:19:33.784383] [NOTICE] [main] end main thread
+[2019-06-21 11:23:14.331216] [NOTICE] [main] start thread main
+[2019-06-21 11:23:14.331435] [NOTICE] [net_L_0] init net
+[2019-06-21 11:23:14.331500] [NOTICE] [net_smx_tf_6] init net
+[2019-06-21 11:23:14.331518] [NOTICE] [net_smx_tf_6] profiler enabled
+[2019-06-21 11:23:14.331525] [NOTICE] [net_smx_tf_6] start net
+[2019-06-21 11:23:14.331584] [NOTICE] [net_M_1] init net
+[2019-06-21 11:23:14.331799] [NOTICE] [net_M_2] init net
+[2019-06-21 11:23:14.331858] [NOTICE] [net_R_3] init net
+[2019-06-21 11:23:14.331952] [NOTICE] [net_Profiler_4] init net
+[2019-06-21 11:23:14.332022] [NOTICE] [net_smx_profiler_5] init net
+[2019-06-21 11:23:14.332068] [NOTICE] [net_M_1] start net
+[2019-06-21 11:23:14.332088] [NOTICE] [net_Profiler_4] start net
+[2019-06-21 11:23:14.332118] [NOTICE] [net_L_0] start net
+[2019-06-21 11:23:14.332142] [NOTICE] [net_smx_tf_6] start net
+[2019-06-21 11:23:14.332160] [NOTICE] [net_R_3] start net
+[2019-06-21 11:23:14.332172] [NOTICE] [net_M_2] start net
+[2019-06-21 11:23:14.332248] [NOTICE] [net_smx_profiler_5] start net
+[2019-06-21 11:23:16.022180] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:23:16.752392] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:23:16.752869] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:23:17.020869] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:23:17.589884] [NOTICE] [net_L_0] send termination notice to neighbours
+[2019-06-21 11:23:17.590025] [NOTICE] [net_L_0] cleanup net
+[2019-06-21 11:23:17.590060] [NOTICE] [net_L_0] terminate net
+[2019-06-21 11:23:17.591739] [NOTICE] [net_M_1] send termination notice to neighbours
+[2019-06-21 11:23:17.591861] [NOTICE] [net_M_1] cleanup net
+[2019-06-21 11:23:17.591917] [NOTICE] [net_M_1] terminate net
+[2019-06-21 11:23:17.592629] [NOTICE] [net_M_2] send termination notice to neighbours
+[2019-06-21 11:23:17.592757] [NOTICE] [net_M_2] cleanup net
+[2019-06-21 11:23:17.592783] [NOTICE] [net_M_2] terminate net
+[2019-06-21 11:23:17.593579] [NOTICE] [net_R_3] send termination notice to neighbours
+[2019-06-21 11:23:17.593607] [NOTICE] [net_R_3] cleanup net
+[2019-06-21 11:23:17.593657] [NOTICE] [net_R_3] terminate net
+[2019-06-21 11:23:17.594604] [NOTICE] [net_smx_tf_6] send termination notice to neighbours
+[2019-06-21 11:23:17.594650] [NOTICE] [net_smx_tf_6] cleanup net
+[2019-06-21 11:23:17.594680] [NOTICE] [net_smx_tf_6] terminate net
+[2019-06-21 11:23:17.594715] [NOTICE] [net_smx_profiler_5] send termination notice to neighbours
+[2019-06-21 11:23:17.594775] [NOTICE] [net_smx_profiler_5] cleanup net
+[2019-06-21 11:23:17.594803] [NOTICE] [net_Profiler_4] send termination notice to neighbours
+[2019-06-21 11:23:17.594894] [NOTICE] [net_smx_profiler_5] terminate net
+[2019-06-21 11:23:17.594948] [NOTICE] [net_Profiler_4] cleanup net
+[2019-06-21 11:23:17.605383] [NOTICE] [net_Profiler_4] terminate net
+[2019-06-21 11:23:17.605803] [NOTICE] [main] end main thread
+[2019-06-21 11:23:40.599588] [NOTICE] [main] start thread main
+[2019-06-21 11:23:40.599922] [NOTICE] [net_L_0] init net
+[2019-06-21 11:23:40.599997] [NOTICE] [net_smx_tf_6] init net
+[2019-06-21 11:23:40.600019] [NOTICE] [net_smx_tf_6] profiler enabled
+[2019-06-21 11:23:40.600029] [NOTICE] [net_smx_tf_6] start net
+[2019-06-21 11:23:40.600107] [NOTICE] [net_M_1] init net
+[2019-06-21 11:23:40.600533] [NOTICE] [net_M_2] init net
+[2019-06-21 11:23:40.600619] [NOTICE] [net_R_3] init net
+[2019-06-21 11:23:40.600702] [NOTICE] [net_Profiler_4] init net
+[2019-06-21 11:23:40.600768] [NOTICE] [net_smx_profiler_5] init net
+[2019-06-21 11:23:40.600825] [NOTICE] [net_M_1] start net
+[2019-06-21 11:23:40.600850] [NOTICE] [net_smx_tf_6] start net
+[2019-06-21 11:23:40.600874] [NOTICE] [net_L_0] start net
+[2019-06-21 11:23:40.600910] [NOTICE] [net_R_3] start net
+[2019-06-21 11:23:40.600933] [NOTICE] [net_M_2] start net
+[2019-06-21 11:23:40.601009] [NOTICE] [net_smx_profiler_5] start net
+[2019-06-21 11:23:40.601037] [NOTICE] [net_Profiler_4] start net
+[2019-06-21 11:23:42.021411] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:23:43.020483] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:23:43.021188] [NOTICE] [net_smx_tf_6] deadline missed
+[2019-06-21 11:23:43.858194] [NOTICE] [net_L_0] send termination notice to neighbours
+[2019-06-21 11:23:43.858269] [NOTICE] [net_L_0] cleanup net
+[2019-06-21 11:23:43.858297] [NOTICE] [net_L_0] terminate net
+[2019-06-21 11:23:43.860166] [NOTICE] [net_M_1] send termination notice to neighbours
+[2019-06-21 11:23:43.860274] [NOTICE] [net_M_1] cleanup net
+[2019-06-21 11:23:43.860316] [NOTICE] [net_M_1] terminate net
+[2019-06-21 11:23:43.861108] [NOTICE] [net_M_2] send termination notice to neighbours
+[2019-06-21 11:23:43.861139] [NOTICE] [net_M_2] cleanup net
+[2019-06-21 11:23:43.861148] [NOTICE] [net_M_2] terminate net
+[2019-06-21 11:23:43.862089] [NOTICE] [net_R_3] send termination notice to neighbours
+[2019-06-21 11:23:43.862140] [NOTICE] [net_R_3] cleanup net
+[2019-06-21 11:23:43.862213] [NOTICE] [net_R_3] terminate net
+[2019-06-21 11:23:43.863100] [NOTICE] [net_smx_tf_6] send termination notice to neighbours
+[2019-06-21 11:23:43.863147] [NOTICE] [net_smx_tf_6] cleanup net
+[2019-06-21 11:23:43.863170] [NOTICE] [net_smx_tf_6] terminate net
+[2019-06-21 11:23:43.863196] [NOTICE] [net_smx_profiler_5] send termination notice to neighbours
+[2019-06-21 11:23:43.863237] [NOTICE] [net_smx_profiler_5] cleanup net
+[2019-06-21 11:23:43.863263] [NOTICE] [net_Profiler_4] send termination notice to neighbours
+[2019-06-21 11:23:43.863293] [NOTICE] [net_smx_profiler_5] terminate net
+[2019-06-21 11:23:43.863319] [NOTICE] [net_Profiler_4] cleanup net
+[2019-06-21 11:23:43.878559] [NOTICE] [net_Profiler_4] terminate net
+[2019-06-21 11:23:43.879001] [NOTICE] [main] end main thread

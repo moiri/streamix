@@ -1,0 +1,168 @@
+[2019-06-21 11:08:07.185254] [NOTICE] [main] start thread main
+[2019-06-21 11:08:07.185377] [NOTICE] [net_A2_1] init net
+[2019-06-21 11:08:07.185469] [NOTICE] [net_A1_0] init net
+[2019-06-21 11:08:07.185508] [NOTICE] [net_B_2] init net
+[2019-06-21 11:08:07.185539] [NOTICE] [net_B_2] start net
+[2019-06-21 11:08:07.185548] [NOTICE] [net_A1_0] start net
+[2019-06-21 11:08:07.185579] [NOTICE] [net_A2_1] start net
+[2019-06-21 11:08:07.216388] [NOTICE] [ch_x_0] rate_control: discard message '2'
+[2019-06-21 11:08:07.221725] [NOTICE] [ch_x_0] rate_control: discard message '4'
+[2019-06-21 11:08:07.227173] [NOTICE] [ch_x_0] rate_control: discard message '5'
+[2019-06-21 11:08:07.238318] [NOTICE] [ch_x_0] rate_control: discard message '7'
+[2019-06-21 11:08:07.243866] [NOTICE] [ch_x_0] rate_control: discard message '9'
+[2019-06-21 11:08:07.249518] [NOTICE] [ch_x_0] rate_control: discard message '10'
+[2019-06-21 11:08:07.260212] [NOTICE] [ch_x_0] rate_control: discard message '12'
+[2019-06-21 11:08:07.265844] [NOTICE] [ch_x_0] rate_control: discard message '14'
+[2019-06-21 11:08:07.271094] [NOTICE] [ch_x_0] rate_control: discard message '15'
+[2019-06-21 11:08:07.282051] [NOTICE] [ch_x_0] rate_control: discard message '18'
+[2019-06-21 11:08:07.287678] [NOTICE] [ch_x_0] rate_control: discard message '19'
+[2019-06-21 11:08:07.293200] [NOTICE] [ch_x_0] rate_control: discard message '20'
+[2019-06-21 11:08:07.304241] [NOTICE] [ch_x_0] rate_control: discard message '23'
+[2019-06-21 11:08:07.309866] [NOTICE] [ch_x_0] rate_control: discard message '24'
+[2019-06-21 11:08:07.315292] [NOTICE] [ch_x_0] rate_control: discard message '25'
+[2019-06-21 11:08:07.326401] [NOTICE] [ch_x_0] rate_control: discard message '28'
+[2019-06-21 11:08:07.332061] [NOTICE] [ch_x_0] rate_control: discard message '29'
+[2019-06-21 11:08:07.337725] [NOTICE] [ch_x_0] rate_control: discard message '30'
+[2019-06-21 11:08:07.348658] [NOTICE] [ch_x_0] rate_control: discard message '33'
+[2019-06-21 11:08:07.354193] [NOTICE] [ch_x_0] rate_control: discard message '34'
+[2019-06-21 11:08:07.359853] [NOTICE] [ch_x_0] rate_control: discard message '35'
+[2019-06-21 11:08:07.370707] [NOTICE] [ch_x_0] rate_control: discard message '38'
+[2019-06-21 11:08:07.376378] [NOTICE] [ch_x_0] rate_control: discard message '39'
+[2019-06-21 11:08:07.382049] [NOTICE] [ch_x_0] rate_control: discard message '40'
+[2019-06-21 11:08:07.393193] [NOTICE] [ch_x_0] rate_control: discard message '43'
+[2019-06-21 11:08:07.398868] [NOTICE] [ch_x_0] rate_control: discard message '44'
+[2019-06-21 11:08:07.404233] [NOTICE] [ch_x_0] rate_control: discard message '46'
+[2019-06-21 11:08:07.415122] [NOTICE] [ch_x_0] rate_control: discard message '48'
+[2019-06-21 11:08:07.420783] [NOTICE] [ch_x_0] rate_control: discard message '49'
+[2019-06-21 11:08:07.426409] [NOTICE] [ch_x_0] rate_control: discard message '51'
+[2019-06-21 11:08:07.437583] [NOTICE] [ch_x_0] rate_control: discard message '53'
+[2019-06-21 11:08:07.443247] [NOTICE] [ch_x_0] rate_control: discard message '54'
+[2019-06-21 11:08:07.448914] [NOTICE] [ch_x_0] rate_control: discard message '56'
+[2019-06-21 11:08:07.460154] [NOTICE] [ch_x_0] rate_control: discard message '58'
+[2019-06-21 11:08:07.465401] [NOTICE] [ch_x_0] rate_control: discard message '60'
+[2019-06-21 11:08:07.471075] [NOTICE] [ch_x_0] rate_control: discard message '61'
+[2019-06-21 11:08:07.482225] [NOTICE] [ch_x_0] rate_control: discard message '63'
+[2019-06-21 11:08:07.487390] [NOTICE] [net_A1_0] send termination notice to neighbours
+[2019-06-21 11:08:07.487579] [NOTICE] [net_A1_0] cleanup net
+[2019-06-21 11:08:07.487638] [NOTICE] [ch_x_0] rate_control: discard message '64'
+[2019-06-21 11:08:07.487778] [NOTICE] [net_A1_0] terminate net
+[2019-06-21 11:08:07.493517] [NOTICE] [ch_x_0] rate_control: discard message '65'
+[2019-06-21 11:08:07.504472] [NOTICE] [net_A2_1] send termination notice to neighbours
+[2019-06-21 11:08:07.504549] [NOTICE] [net_A2_1] cleanup net
+[2019-06-21 11:08:07.504579] [NOTICE] [net_A2_1] terminate net
+[2019-06-21 11:08:07.504651] [NOTICE] [net_B_2] send termination notice to neighbours
+[2019-06-21 11:08:07.504737] [NOTICE] [net_B_2] cleanup net
+[2019-06-21 11:08:07.504795] [NOTICE] [net_B_2] terminate net
+[2019-06-21 11:08:07.505032] [NOTICE] [main] end main thread
+[2019-06-21 11:23:00.353178] [NOTICE] [main] start thread main
+[2019-06-21 11:23:00.353689] [NOTICE] [net_A1_0] init net
+[2019-06-21 11:23:00.353928] [NOTICE] [net_A2_1] init net
+[2019-06-21 11:23:00.354146] [NOTICE] [net_B_2] init net
+[2019-06-21 11:23:00.354325] [NOTICE] [net_B_2] start net
+[2019-06-21 11:23:00.354372] [NOTICE] [net_A1_0] start net
+[2019-06-21 11:23:00.354425] [NOTICE] [net_A2_1] start net
+[2019-06-21 11:23:00.359924] [NOTICE] [ch_x_0] rate_control: discard message '2'
+[2019-06-21 11:23:00.365200] [NOTICE] [ch_x_0] rate_control: discard message '4'
+[2019-06-21 11:23:00.370402] [NOTICE] [ch_x_0] rate_control: discard message '5'
+[2019-06-21 11:23:00.380783] [NOTICE] [ch_x_0] rate_control: discard message '7'
+[2019-06-21 11:23:00.386269] [NOTICE] [ch_x_0] rate_control: discard message '9'
+[2019-06-21 11:23:00.391500] [NOTICE] [ch_x_0] rate_control: discard message '10'
+[2019-06-21 11:23:00.401950] [NOTICE] [ch_x_0] rate_control: discard message '12'
+[2019-06-21 11:23:00.407203] [NOTICE] [ch_x_0] rate_control: discard message '14'
+[2019-06-21 11:23:00.412840] [NOTICE] [ch_x_0] rate_control: discard message '15'
+[2019-06-21 11:23:00.423474] [NOTICE] [ch_x_0] rate_control: discard message '17'
+[2019-06-21 11:23:00.429124] [NOTICE] [ch_x_0] rate_control: discard message '19'
+[2019-06-21 11:23:00.434498] [NOTICE] [ch_x_0] rate_control: discard message '20'
+[2019-06-21 11:23:00.445594] [NOTICE] [ch_x_0] rate_control: discard message '22'
+[2019-06-21 11:23:00.451022] [NOTICE] [ch_x_0] rate_control: discard message '24'
+[2019-06-21 11:23:00.456356] [NOTICE] [ch_x_0] rate_control: discard message '25'
+[2019-06-21 11:23:00.467082] [NOTICE] [ch_x_0] rate_control: discard message '28'
+[2019-06-21 11:23:00.472713] [NOTICE] [ch_x_0] rate_control: discard message '29'
+[2019-06-21 11:23:00.478297] [NOTICE] [ch_x_0] rate_control: discard message '30'
+[2019-06-21 11:23:00.489392] [NOTICE] [ch_x_0] rate_control: discard message '33'
+[2019-06-21 11:23:00.494936] [NOTICE] [ch_x_0] rate_control: discard message '34'
+[2019-06-21 11:23:00.500566] [NOTICE] [ch_x_0] rate_control: discard message '35'
+[2019-06-21 11:23:00.511729] [NOTICE] [ch_x_0] rate_control: discard message '38'
+[2019-06-21 11:23:00.516976] [NOTICE] [ch_x_0] rate_control: discard message '39'
+[2019-06-21 11:23:00.522605] [NOTICE] [ch_x_0] rate_control: discard message '40'
+[2019-06-21 11:23:00.533540] [NOTICE] [ch_x_0] rate_control: discard message '43'
+[2019-06-21 11:23:00.539133] [NOTICE] [ch_x_0] rate_control: discard message '44'
+[2019-06-21 11:23:00.544800] [NOTICE] [ch_x_0] rate_control: discard message '45'
+[2019-06-21 11:23:00.555884] [NOTICE] [ch_x_0] rate_control: discard message '48'
+[2019-06-21 11:23:00.561537] [NOTICE] [ch_x_0] rate_control: discard message '49'
+[2019-06-21 11:23:00.567215] [NOTICE] [ch_x_0] rate_control: discard message '50'
+[2019-06-21 11:23:00.578063] [NOTICE] [ch_x_0] rate_control: discard message '53'
+[2019-06-21 11:23:00.583721] [NOTICE] [ch_x_0] rate_control: discard message '54'
+[2019-06-21 11:23:00.588965] [NOTICE] [ch_x_0] rate_control: discard message '56'
+[2019-06-21 11:23:00.599718] [NOTICE] [ch_x_0] rate_control: discard message '58'
+[2019-06-21 11:23:00.605382] [NOTICE] [ch_x_0] rate_control: discard message '59'
+[2019-06-21 11:23:00.610986] [NOTICE] [ch_x_0] rate_control: discard message '61'
+[2019-06-21 11:23:00.621843] [NOTICE] [ch_x_0] rate_control: discard message '63'
+[2019-06-21 11:23:00.627493] [NOTICE] [ch_x_0] rate_control: discard message '64'
+[2019-06-21 11:23:00.629032] [NOTICE] [net_A1_0] send termination notice to neighbours
+[2019-06-21 11:23:00.629098] [NOTICE] [net_A1_0] cleanup net
+[2019-06-21 11:23:00.629135] [NOTICE] [net_A1_0] terminate net
+[2019-06-21 11:23:00.632967] [NOTICE] [ch_x_0] rate_control: discard message '65'
+[2019-06-21 11:23:00.643825] [NOTICE] [net_A2_1] send termination notice to neighbours
+[2019-06-21 11:23:00.643938] [NOTICE] [net_A2_1] cleanup net
+[2019-06-21 11:23:00.643970] [NOTICE] [net_A2_1] terminate net
+[2019-06-21 11:23:00.644040] [NOTICE] [net_B_2] send termination notice to neighbours
+[2019-06-21 11:23:00.644099] [NOTICE] [net_B_2] cleanup net
+[2019-06-21 11:23:00.644179] [NOTICE] [net_B_2] terminate net
+[2019-06-21 11:23:00.644406] [NOTICE] [main] end main thread
+[2019-06-21 11:23:40.264957] [NOTICE] [main] start thread main
+[2019-06-21 11:23:40.266142] [NOTICE] [net_A1_0] init net
+[2019-06-21 11:23:40.266548] [NOTICE] [net_A2_1] init net
+[2019-06-21 11:23:40.266949] [NOTICE] [net_B_2] init net
+[2019-06-21 11:23:40.267224] [NOTICE] [net_B_2] start net
+[2019-06-21 11:23:40.267318] [NOTICE] [net_A2_1] start net
+[2019-06-21 11:23:40.267429] [NOTICE] [net_A1_0] start net
+[2019-06-21 11:23:40.273240] [NOTICE] [ch_x_0] rate_control: discard message '2'
+[2019-06-21 11:23:40.278396] [NOTICE] [ch_x_0] rate_control: discard message '4'
+[2019-06-21 11:23:40.283575] [NOTICE] [ch_x_0] rate_control: discard message '5'
+[2019-06-21 11:23:40.294495] [NOTICE] [ch_x_0] rate_control: discard message '7'
+[2019-06-21 11:23:40.300013] [NOTICE] [ch_x_0] rate_control: discard message '9'
+[2019-06-21 11:23:40.305641] [NOTICE] [ch_x_0] rate_control: discard message '10'
+[2019-06-21 11:23:40.316805] [NOTICE] [ch_x_0] rate_control: discard message '12'
+[2019-06-21 11:23:40.322436] [NOTICE] [ch_x_0] rate_control: discard message '14'
+[2019-06-21 11:23:40.327702] [NOTICE] [ch_x_0] rate_control: discard message '15'
+[2019-06-21 11:23:40.338068] [NOTICE] [ch_x_0] rate_control: discard message '17'
+[2019-06-21 11:23:40.343283] [NOTICE] [ch_x_0] rate_control: discard message '19'
+[2019-06-21 11:23:40.348465] [NOTICE] [ch_x_0] rate_control: discard message '20'
+[2019-06-21 11:23:40.358859] [NOTICE] [ch_x_0] rate_control: discard message '23'
+[2019-06-21 11:23:40.364076] [NOTICE] [ch_x_0] rate_control: discard message '24'
+[2019-06-21 11:23:40.369294] [NOTICE] [ch_x_0] rate_control: discard message '25'
+[2019-06-21 11:23:40.379684] [NOTICE] [ch_x_0] rate_control: discard message '28'
+[2019-06-21 11:23:40.384889] [NOTICE] [ch_x_0] rate_control: discard message '29'
+[2019-06-21 11:23:40.390092] [NOTICE] [ch_x_0] rate_control: discard message '30'
+[2019-06-21 11:23:40.400473] [NOTICE] [ch_x_0] rate_control: discard message '33'
+[2019-06-21 11:23:40.405684] [NOTICE] [ch_x_0] rate_control: discard message '34'
+[2019-06-21 11:23:40.410889] [NOTICE] [ch_x_0] rate_control: discard message '35'
+[2019-06-21 11:23:40.421620] [NOTICE] [ch_x_0] rate_control: discard message '38'
+[2019-06-21 11:23:40.426839] [NOTICE] [ch_x_0] rate_control: discard message '39'
+[2019-06-21 11:23:40.432415] [NOTICE] [ch_x_0] rate_control: discard message '40'
+[2019-06-21 11:23:40.443222] [NOTICE] [ch_x_0] rate_control: discard message '43'
+[2019-06-21 11:23:40.448831] [NOTICE] [ch_x_0] rate_control: discard message '44'
+[2019-06-21 11:23:40.454076] [NOTICE] [ch_x_0] rate_control: discard message '45'
+[2019-06-21 11:23:40.464823] [NOTICE] [ch_x_0] rate_control: discard message '48'
+[2019-06-21 11:23:40.470155] [NOTICE] [ch_x_0] rate_control: discard message '49'
+[2019-06-21 11:23:40.475769] [NOTICE] [ch_x_0] rate_control: discard message '50'
+[2019-06-21 11:23:40.486226] [NOTICE] [ch_x_0] rate_control: discard message '53'
+[2019-06-21 11:23:40.491749] [NOTICE] [ch_x_0] rate_control: discard message '54'
+[2019-06-21 11:23:40.496981] [NOTICE] [ch_x_0] rate_control: discard message '55'
+[2019-06-21 11:23:40.507890] [NOTICE] [ch_x_0] rate_control: discard message '58'
+[2019-06-21 11:23:40.513109] [NOTICE] [ch_x_0] rate_control: discard message '59'
+[2019-06-21 11:23:40.518582] [NOTICE] [ch_x_0] rate_control: discard message '60'
+[2019-06-21 11:23:40.529637] [NOTICE] [ch_x_0] rate_control: discard message '63'
+[2019-06-21 11:23:40.535274] [NOTICE] [ch_x_0] rate_control: discard message '64'
+[2019-06-21 11:23:40.540903] [NOTICE] [ch_x_0] rate_control: discard message '65'
+[2019-06-21 11:23:40.541037] [NOTICE] [net_A1_0] send termination notice to neighbours
+[2019-06-21 11:23:40.541080] [NOTICE] [net_A1_0] cleanup net
+[2019-06-21 11:23:40.541150] [NOTICE] [net_A1_0] terminate net
+[2019-06-21 11:23:40.551816] [NOTICE] [net_A2_1] send termination notice to neighbours
+[2019-06-21 11:23:40.551891] [NOTICE] [net_A2_1] cleanup net
+[2019-06-21 11:23:40.551922] [NOTICE] [net_A2_1] terminate net
+[2019-06-21 11:23:40.551994] [NOTICE] [net_B_2] send termination notice to neighbours
+[2019-06-21 11:23:40.552069] [NOTICE] [net_B_2] cleanup net
+[2019-06-21 11:23:40.552147] [NOTICE] [net_B_2] terminate net
+[2019-06-21 11:23:40.552342] [NOTICE] [main] end main thread
