@@ -1,3 +1,9 @@
 merge
 merge.c
+merge.log
 *_sig.h
+
+build
+dot
+out
+log

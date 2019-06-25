@@ -1,3 +1,9 @@
 stream
 stream.c
+stream.log
 *_sig.h
+
+build
+dot
+out
+log

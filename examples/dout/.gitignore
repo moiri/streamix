@@ -1,3 +1,9 @@
 dout
 dout.c
+dout.log
 *_sig.h
+
+build
+dot
+out
+log

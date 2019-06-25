@@ -1,3 +1,9 @@
 copy
 copy.c
+copy.log
 *_sig.h
+
+build
+dot
+out
+log

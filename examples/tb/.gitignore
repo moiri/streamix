@@ -1,3 +1,9 @@
 tb
 tb.c
+tb.log
 *_sig.h
+
+build
+dot
+out
+log
