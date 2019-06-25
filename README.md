@@ -42,6 +42,7 @@ This is used to build depedency graphs.
 If you want to compile it from source, make sure GraphML is enabled (see http://igraph.org/c/ for details)
 
     cd igraph
+    bootstrap.sh
     ./configure
     make
     make check
