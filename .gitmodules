@@ -13,6 +13,3 @@
 [submodule "zlog"]
 	path = zlog
 	url = https://github.com/HardySimpson/zlog.git
-[submodule "igraph"]
-	path = igraph
-	url = https://github.com/igraph/igraph.git
