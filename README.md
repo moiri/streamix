@@ -6,7 +6,8 @@ Root repository for the Streamix project. This includes:
  - the Streamix network checker [`smxsia`](https://github.com/moiri/streamix-sia)
  - the Streamix network checker language compiler [`sia2graph`](https://github.com/moiri/streamix-sia-lang)
 
-For details refer to each individual repository.
+Streamix is a coordination language targeting mixed-criticality cyber-physical systems.
+For details refer to [this](https://uhra.herts.ac.uk/handle/2299/21094) document.
 
 ## 1. Installation and Requirements
 The Streamix tools require [`flex`](https://github.com/westes/flex), [`bison`](https://www.gnu.org/software/bison/), [`igraph`](http://igraph.org/c/), and [`zlog`](https://github.com/HardySimpson/zlog) (for installation see below).

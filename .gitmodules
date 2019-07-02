@@ -1,15 +1,15 @@
 [submodule "streamix-c"]
 	path = streamix-c
-	url = git@github.com:moiri/streamix-c.git
+	url = https@github.com:moiri/streamix-c.git
 [submodule "streamix-rts"]
 	path = streamix-rts
-	url = git@github.com:moiri/streamix-rts.git
+	url = https@github.com:moiri/streamix-rts.git
 [submodule "streamix-sia"]
 	path = streamix-sia
-	url = git@github.com:moiri/streamix-sia.git
+	url = https@github.com:moiri/streamix-sia.git
 [submodule "streamix-graph2c"]
 	path = streamix-graph2c
-	url = git@github.com:moiri/streamix-graph2c.git
+	url = https@github.com:moiri/streamix-graph2c.git
 [submodule "zlog"]
 	path = zlog
 	url = https://github.com/HardySimpson/zlog.git
