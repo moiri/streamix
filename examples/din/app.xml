@@ -1,5 +1,0 @@
-<app name="din" log="app.zlog">
-    <A1 file="in/sample_1.txt" sleep="20000" profiler="off" />
-    <A2 file="in/sample_2.txt" sleep="10000" profiler="off" />
-    <B file="out/out.txt" profiler="off" />
-</app>

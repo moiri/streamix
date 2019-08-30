@@ -1,6 +1,0 @@
-<app name="copy" log="app.zlog">
-    <A file="in/sample.txt" profiler="off" />
-    <B1 file="out/out_1.txt" profiler="off" />
-    <B2 file="out/out_2.txt" profiler="off" />
-    <smx_rn profiler="off" />
-</app>

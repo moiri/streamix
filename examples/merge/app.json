@@ -1,0 +1,48 @@
+{
+    "_name": "merge",
+    "_log": "app.zlog",
+    "_nets": {
+        "_default": {
+            "comment": "fallback configuration for all nets",
+            "profiler": false,
+            "config": {}
+        }
+        , "a": {
+            "_default": {
+                "comment": "fallback configuration for all nets using box implementation `a`",
+                "profiler": null,
+                "config": null
+            }
+            , "A": {
+                "0": {
+                    "comment": "configuration for the net instance with id `0`",
+                    "profiler": null,
+                    "config": {
+                        "file": "in/sample1.txt",
+                        "idx": 0
+                    }
+                },
+                "1": {
+                    "comment": "configuration for the net instance with id `1`",
+                    "profiler": null,
+                    "config": {
+                        "file": "in/sample2.txt",
+                        "idx": 1
+                    }
+                }
+            }
+        }
+        , "b": {
+            "_default": {
+                "comment": "fallback configuration for all nets using box implementation `b`",
+                "profiler": null,
+                "config": {
+                    "file1": "out/out1.txt",
+                    "file2": "out/out2.txt",
+                    "idx1": 0,
+                    "idx2": 1
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+[global]
+default format = "[%d.%us] [%V] [%c] %m%n"
+[formats]
+debug = "[%d.%us] [%V] [%t] [%c] %m%n"
+[rules]
+*.DEBUG    "%d(%Y-%m-%d_%H-%M-%S)_%p_debug.log"; debug
+*.WARN     >stderr

@@ -9,8 +9,6 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <libxml/parser.h>
-#include <libxml/tree.h>
 #include "smxrts.h"
 #include "a.h"
 
@@ -42,41 +40,33 @@ void a_cleanup( void* h, void* state )
 /******************************************************************************/
 int a_init( void* h, void** state )
 {
-    xmlNodePtr cur = SMX_NET_GET_CONF( h );
-    xmlChar* name = NULL;
-    xmlChar* sleep = NULL;
+    bson_t* conf = SMX_NET_GET_CONF( h );
+    smx_config_error_t err;
+    int sleep;
+    const char* name = smx_config_get_string( conf, "file", NULL );
 
-    if( cur == NULL )
-    {
-        SMX_LOG( h, error, "invalid box configuartion" );
-        return 1;
-    }
-
-    name = xmlGetProp(cur, (const xmlChar*)"file");
     if( name == NULL )
     {
         SMX_LOG( h, error, "invalid box configuartion, no property 'file'" );
         return 1;
     }
 
-    sleep = xmlGetProp(cur, (const xmlChar*)"sleep");
-    if( name == NULL )
+    sleep = smx_config_get_int_err( conf, "sleep", &err );
+    if( err > 0 )
     {
         SMX_LOG( h, error, "invalid box configuartion, no property 'sleep'" );
         return 1;
     }
 
     a_state_t* a_state = malloc(sizeof(struct a_state_s));
-    a_state->sleep = atoi( (const char*)sleep );
-    a_state->fp = fopen( (const char*)name, "r" );
+    a_state->sleep = sleep;
+    a_state->fp = fopen( name, "r" );
     if( a_state->fp == NULL )
     {
         SMX_LOG( h, error, "cannot open file %s", name );
         return 1;
     }
     *state = a_state;
-    xmlFree(name);
-    xmlFree(sleep);
     return 0;
 }
 

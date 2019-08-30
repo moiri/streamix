@@ -4,3 +4,6 @@ obj
 
 deb/*.deb
 deb/*/usr
+deb/*/opt
+dpkg
+test/a

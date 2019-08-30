@@ -1,7 +1,0 @@
-<app name="class" log="app.zlog">
-    <L file="in/sample.txt" profiler="off" />
-    <M profiler="off" />
-    <R file="out/out.txt" profiler="off" />
-    <Profiler uri="mongodb://localhost:27017" db="smx" comit_rate="1" profiler="off" />
-    <smx_profiler profiler="off" />
-</app>

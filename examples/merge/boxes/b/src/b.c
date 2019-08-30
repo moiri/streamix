@@ -7,8 +7,6 @@
  * ADD DESCRITPTION HERE
  */
 
-#include <libxml/parser.h>
-#include <libxml/tree.h>
 #include "smxrts.h"
 #include "b.h"
 #include "a_msg.h"
@@ -46,66 +44,53 @@ void b_cleanup( void* h, void* state )
 /******************************************************************************/
 int b_init( void* h, void** state )
 {
-    xmlNodePtr cur = SMX_NET_GET_CONF( h );
-    xmlChar* name1 = NULL;
-    xmlChar* name2 = NULL;
-    xmlChar* idx1 = NULL;
-    xmlChar* idx2 = NULL;
+    bson_t* conf = SMX_NET_GET_CONF( h );
+    smx_config_error_t err;
+    int idx1, idx2;
+    const char* name1 = smx_config_get_string( conf, "file1", NULL );
+    const char* name2 = smx_config_get_string( conf, "file2", NULL );
 
-    if( cur == NULL )
-    {
-        SMX_LOG( h, error, "invalid box configuartion" );
-        return 1;
-    }
-
-    name1 = xmlGetProp(cur, (const xmlChar*)"file1");
     if( name1 == NULL )
     {
         SMX_LOG( h, error, "invalid box configuartion, no property 'file1'" );
         return 1;
     }
-
-    name2 = xmlGetProp(cur, (const xmlChar*)"file2");
     if( name2 == NULL )
     {
         SMX_LOG( h, error, "invalid box configuartion, no property 'file2'" );
         return 1;
     }
 
-    idx1 = xmlGetProp(cur, (const xmlChar*)"idx1");
-    if( idx1 == NULL )
+    idx1 = smx_config_get_int_err( conf, "idx1", &err );
+    if( err > 0 )
     {
         SMX_LOG( h, error, "invalid box configuartion, no property 'idx1'" );
         return 1;
     }
 
-    idx2 = xmlGetProp(cur, (const xmlChar*)"idx2");
-    if( idx2 == NULL )
+    idx2 = smx_config_get_int_err( conf, "idx2", &err );
+    if( err > 0 )
     {
         SMX_LOG( h, error, "invalid box configuartion, no property 'idx2'" );
         return 1;
     }
 
     b_state_t* merge_state = malloc(sizeof(struct b_state_s));
-    merge_state->idx1 = atoi( (const char*)idx1 );
-    merge_state->idx2 = atoi( (const char*)idx2 );
-    merge_state->fp1 = fopen( (const char*)name1, "w" );
+    merge_state->idx1 = idx1;
+    merge_state->idx2 = idx2;
+    merge_state->fp1 = fopen( name1, "w" );
     if( merge_state->fp1 == NULL )
     {
         SMX_LOG( h, error, "cannot open file %s", name1 );
         return 1;
     }
-    merge_state->fp2 = fopen( (const char*)name2, "w" );
+    merge_state->fp2 = fopen( name2, "w" );
     if( merge_state->fp2 == NULL )
     {
         SMX_LOG( h, error, "cannot open file %s", name2 );
         return 1;
     }
     *state = merge_state;
-    xmlFree(name1);
-    xmlFree(name2);
-    xmlFree(idx1);
-    xmlFree(idx2);
     return 0;
 }
 

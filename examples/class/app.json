@@ -1,0 +1,23 @@
+{
+    "_name": "class",
+    "_log": "app.zlog",
+    "_nets": {
+        "_default": {
+            "profiler": true
+        },
+        "l": {
+            "_default": {
+                "config": {
+                    "file": "in/sample.txt"
+                }
+            }
+        },
+        "r": {
+            "_default": {
+                "config": {
+                    "file": "out/out.txt"
+                }
+            }
+        }
+    }
+}

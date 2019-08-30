@@ -62,6 +62,7 @@ flags = [
 '-isystem', '/usr/target/include',
 '-isystem', '/usr/include',
 '-isystem', '/usr/include/libxml2',
+'-isystem', '/usr/include/libbson-1.0',
 '-I', '.',
 '-I', './include',
 '-I', './boxes/l/include',

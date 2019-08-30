@@ -1,0 +1,31 @@
+{
+    "_name": "dout",
+    "_log": "app.zlog",
+    "_nets": {
+        "_default": {
+            "comment": "fallback configuration for all nets",
+            "profiler": false,
+            "config": {}
+        }
+        , "a": {
+            "_default": {
+                "comment": "fallback configuration for all nets using box implementation `a`",
+                "profiler": null,
+                "config": {
+                    "file": "in/sample.txt",
+                    "sleep": 10000
+                }
+            }
+        }
+        , "b": {
+            "_default": {
+                "comment": "fallback configuration for all nets using box implementation `b`",
+                "profiler": null,
+                "config": {
+                    "file": "out/out.txt",
+                    "sleep": 20000
+                }
+            }
+        }
+    }
+}

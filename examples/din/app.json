@@ -1,0 +1,47 @@
+{
+    "_name": "din",
+    "_log": "app.zlog",
+    "_nets": {
+        "_default": {
+            "comment": "fallback configuration for all nets",
+            "profiler": false,
+            "config": {}
+        }
+        , "a": {
+            "_default": {
+                "comment": "fallback configuration for all nets using box implementation `a`",
+                "profiler": null,
+                "config": null
+            }
+            , "A1": {
+                "_default": {
+                    "comment": "fallback configuration for all nets using box implementation `a` and net name `A1`",
+                    "profiler": null,
+                    "config": {
+                        "sleep": 20000,
+                        "file": "in/sample_1.txt"
+                    }
+                }
+            }
+            , "A2": {
+                "_default": {
+                    "comment": "fallback configuration for all nets using box implementation `a` and net name `A2`",
+                    "profiler": null,
+                    "config": {
+                        "sleep": 10000,
+                        "file": "in/sample_2.txt"
+                    }
+                }
+            }
+        }
+        , "b": {
+            "_default": {
+                "comment": "fallback configuration for all nets using box implementation `b`",
+                "profiler": null,
+                "config": {
+                    "file": "out/out.txt"
+                }
+            }
+        }
+    }
+}

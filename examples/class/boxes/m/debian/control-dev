@@ -1,0 +1,10 @@
+Package: libm-dev
+Version: <version>
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: libm-<maj_version> (>= <version>), libsmxrts-dev (>= 0.1.0-0)
+Maintainer: YOUR NAME <YOUR EMAIL>
+Description: Development Package of 'libm'
+ This is the development package of the library 'libm'. This library
+ contains the box implemntation of the Streamix box 'm'.

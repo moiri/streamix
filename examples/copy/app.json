@@ -1,0 +1,35 @@
+{
+    "_name": "copy",
+    "_log": "app.zlog",
+    "_nets": {
+        "_default": {
+            "comment": "fallback configuration for all nets",
+            "profiler": false,
+            "config": {}
+        },
+        "a": {
+            "_default": {
+                "comment": "fallback configuration for all nets using box implementation `a`",
+                "config": {
+                    "file": "in/sample.txt"
+                }
+            }
+        },
+        "b": {
+            "B": {
+                "1": {
+                    "comment": "configuration for the net instance with id `1`",
+                    "config": {
+                        "file": "out/out_1.txt"
+                    }
+                },
+                "2": {
+                    "comment": "configuration for the net instance with id `2`",
+                    "config": {
+                        "file": "out/out_2.txt"
+                    }
+                }
+            }
+        }
+    }
+}

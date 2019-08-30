@@ -7,10 +7,9 @@
  * ADD DESCRITPTION HERE
  */
 
+#include <bson.h>
 #include "smxrts.h"
 #include "a.h"
-#include <libxml/parser.h>
-#include <libxml/tree.h>
 
 /******************************************************************************/
 int a( void* h, void* state )
@@ -41,30 +40,22 @@ void a_cleanup( void* h, void* state )
 /******************************************************************************/
 int a_init( void* h, void** state )
 {
-    xmlNodePtr cur = SMX_NET_GET_CONF( h );
-    xmlChar* name = NULL;
+    bson_t* conf = SMX_NET_GET_CONF( h );
+    const char* name = smx_config_get_string( conf, "file", NULL );
 
-    if( cur == NULL )
-    {
-        SMX_LOG( h, error, "invalid box configuartion" );
-        return 1;
-    }
-
-    name = xmlGetProp(cur, (const xmlChar*)"file");
     if( name == NULL )
     {
         SMX_LOG( h, error, "invalid box configuartion, no property 'file'" );
         return 1;
     }
 
-    FILE *fp = fopen( (const char*)name, "r" );
+    FILE *fp = fopen( name, "r" );
     if( fp == NULL )
     {
         SMX_LOG( h, error, "cannot open file %s", name );
         return 1;
     }
     *state = fp;
-    xmlFree(name);
     return 0;
 }
 

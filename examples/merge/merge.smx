@@ -1,5 +1,4 @@
-A1 = box a( out x )
-A2 = box a( out x )
+A = box a( out x )
 B = box b( in x )
 
-connect (A1!A2).B
+connect (A!A).B
