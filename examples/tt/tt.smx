@@ -1,9 +1,8 @@
 L = box l( out x )
 M = box m( left in x, right out x )
 R = box r( in x )
-Profiler = extern box smx_mongo( profiler data[100], in ui open )
 
-connect tt[1ms](L.M.M.R)|Profiler
+connect tt[1ms](L.M.M.R)
 /* equivalent to connect tt[1ms](A).tt[1ms](B).tt[1ms](C) */
 /* connect tt[1s](A).tt[2s](B) */
 /* connect tt[1s](A).B */

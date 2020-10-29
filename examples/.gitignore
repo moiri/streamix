@@ -2,3 +2,4 @@ build
 dot
 out
 log
+fatal.log

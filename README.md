@@ -56,6 +56,26 @@ This is used as a logger in the runtime system. To install type
     make
     sudo make install
 
+### 1.5 [`pthread`](https://computing.llnl.gov/tutorials/pthreads/)
+The RTS is based on `pthreads`.
+
+    ```
+    sudo apt install libpthread-stubs0-dev
+    ```
+
+    **Important Note:** Do not statically link `libpthread`, otherwise the
+    resulting software must be published under
+    [LGPL-v2.1](https://choosealicense.com/licenses/lgpl-2.1/).
+
+### 1.6 [`lttng`](https://lttng.org/)
+The RTS uses `lttng` as tracing utility.
+
+    ```
+    sudo apt-get install lttng-tools
+    sudo apt-get install lttng-modules-dkms
+    sudo apt-get install liblttng-ust-dev
+    ```
+
 ## 2. Examples
 To compile all examples run
 

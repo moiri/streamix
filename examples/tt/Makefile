@@ -6,6 +6,11 @@ SHELL := /bin/bash
 # If other changes are necessary, feel free to do so ;)
 ###############################################################################
 
+# The version number of the application ($(VMAJ).$(VMIN).$(VREV))
+VMAJ = 0
+VMIN = 1
+VREV = 0
+
 # list the external libraries prefixed with -l
 EXT_LIBS =
 
@@ -25,26 +30,42 @@ PROFILER_INCS_DIR = -I/usr/include/libmongoc-1.0 -I/usr/include/libbson-1.0
 # END CUTOMIZATION HERE
 ###############################################################################
 
-PROJECT = tt
+APPNAME = tt
+
+LIB_VERSION = $(VMAJ).$(VMIN)
+UPSTREAM_VERSION = $(LIB_VERSION).$(VREV)
+DEBIAN_REVISION = 0
+VERSION = $(UPSTREAM_VERSION)-$(DEBIAN_REVISION)
+
+VAPPNAME = $(APPNAME)-$(LIB_VERSION)
+
+DPKG_DIR = dpkg
+DPKG_CTL_DIR = debian
+DPKG_TGT = DEBIAN
+DPKGS = $(DPKG_DIR)/$(APPNAME)_$(VERSION)_amd64
+TGT_BIN = /opt/smx/bin
+TGT_DOC = /opt/smx/doc/apps
+TGT_CONF = /opt/smx/conf/apps
 
 GENPATH = build
 BOXIMPL = boxes/*
+BOXES = $(wildcard $(BOXIMPL))
 FORMAT = graphml
 
 BIN_PATH = /opt/smx/bin
 
-OUTGRAPH_NAME = $(PROJECT).$(FORMAT)
-SIAGRAPH_NAME = sia_$(PROJECT).$(FORMAT)
-PNSCGRAPH_NAME = pnsc_$(PROJECT).$(FORMAT)
+OUTGRAPH_NAME = $(APPNAME).$(FORMAT)
+SIAGRAPH_NAME = sia_$(APPNAME).$(FORMAT)
+PNSCGRAPH_NAME = pnsc_$(APPNAME).$(FORMAT)
 OUTGRAPH = $(GENPATH)/$(OUTGRAPH_NAME)
 SIAGRAPH = $(GENPATH)/$(SIAGRAPH_NAME)
 PNSCGRAPH = $(GENPATH)/$(PNSCGRAPH_NAME)
-OUTSRC = $(PROJECT).c
-OUTINC = $(BOXIMPL)/include/*_sig.h
+OUTSRC = $(GENPATH)/app.c
+OUTINC = $(wildcard $(BOXIMPL)/include/*_sig.h)
 
 SOURCES = $(OUTSRC)
 
-INCLUDES = $(BOXIMPL)/include/*.h
+INCLUDES = $(wildcard $(BOXIMPL)/include/*.h)
 
 INCLUDES_DIR = -I/usr/local/ \
 	-I/opt/smx/include \
@@ -54,16 +75,16 @@ INCLUDES_DIR = -I/usr/local/ \
 LINK_DIR = -L/usr/local/lib \
 	-L/opt/smx/lib $(BOX_LIB_DIR) $(EXT_LIBS_DIR)
 
-LINK_FILE = -lsmxrts \
+LINK_FILE = $(LIBS) -lsmxrts \
 	-lpthread \
 	-lxml2 \
-	-lzlog $(LIBS) $(PROFILER_LIBS) $(EXT_LIBS)
+	-lzlog $(PROFILER_LIBS) $(EXT_LIBS)
 
 CC = gcc
-CFLAGS = -Wall
+CFLAGS = -Wall -DAPP_VERSION=\"$(UPSTREAM_VERSION)\"
 DEBUG_FLAGS = -g -O0
 
-all: $(PROJECT)
+all: $(APPNAME)
 
 smx: $(OUTSRC) $(OUTINC)
 
@@ -71,13 +92,13 @@ sia: $(SIAGRAPH)
 
 # compile with dot stuff and debug flags
 debug: CFLAGS += $(DEBUG_FLAGS)
-debug: $(PROJECT)
+debug: $(APPNAME)
 
-$(PROJECT): $(SOURCES) $(INCLUDES) boximpl
+$(APPNAME): $(SOURCES) $(INCLUDES) boximpl
 	$(CC) $(CFLAGS) $(SOURCES) $(INCLUDES_DIR) $(LINK_DIR) $(LINK_FILE) -o $@
 
-boximpl: $(BOXIMPL) setboxpaths
-$(BOXIMPL):
+boximpl: $(BOXES) setboxpaths
+$(BOXES):
 	$(MAKE) -C $@
 
 setboxpaths:
@@ -94,16 +115,16 @@ $(SIAGRAPH): $(PNSCGRAPH)
 $(PNSCGRAPH) $(OUTSRC) $(OUTINC): $(OUTGRAPH)
 	$(BIN_PATH)/smxrtsp $^ -p $(GENPATH) -f $(FORMAT)
 
-$(OUTGRAPH): $(PROJECT).smx
+$(OUTGRAPH): $(APPNAME).smx
 	$(BIN_PATH)/smxc -f $(FORMAT) -p $(GENPATH) $(SIA_INPUT) -o $(OUTGRAPH_NAME) $^
 
 
-.PHONY: clean run valgrind boximpl $(BOXIMPL) setboxpaths
+.PHONY: clean run clean_run valgrind boximpl $(BOXIMPL) setboxpaths dpkg $(DPKGS) install uninstall
 
 clean: clean_run
 	rm -rf $(GENPATH)
-	rm -f $(PROJECT)
-	rm -f $(PROJECT).c
+	rm -f $(APPNAME)
+	rm -f $(APPNAME).c
 	rm -f $(BOXIMPL)/include/*_sig.h
 	rm -rf $(BOXIMPL)/lib
 	rm -rf $(BOXIMPL)/obj
@@ -113,11 +134,41 @@ clean_run:
 	rm -f log/*
 
 run:
-	./$(PROJECT)
+	./$(APPNAME)
 
 test: clean_run run
 	./test.sh
 
 valgrind:
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -v ./$(PROJECT)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -v ./$(APPNAME)
 
+install:
+	mkdir -p (TGT_BIN) $(TGT_DOC) $(TGT_CONF)
+	cp -a $(APPNAME) $(TGT_BIN)/$(VAPPNAME)
+	ln -sf $(VAPPNAME) $(TGT_BIN)/$(APPNAME)
+	cp -a README.md $(TGT_DOC)/$(VAPPNAME).md
+	cp -a app.xml $(TGT_CONF)/$(VAPPNAME).xml
+
+uninstall:
+	rm $(TGT_BIN)/$(APPNAME)
+	rm $(TGT_BIN)/$(VAPPNAME)
+	rm $(TGT_DOC)/$(VAPPNAME).md
+	rm $(TGT_CONF)/$(VAPPNAME).xml
+
+dpkg: $(DPKGS)
+$(DPKGS):
+	mkdir -p $@$(TGT_BIN)
+	cp $(APPNAME) $@$(TGT_BIN)/$(VAPPNAME)
+	ln -sf $(VAPPNAME) $@$(TGT_BIN)/$(APPNAME)
+	mkdir -p $@$(TGT_DOC)
+	cp README.md $@$(TGT_DOC)/$(VAPPNAME).md
+	mkdir -p $@$(TGT_CONF)
+	cp app.xml $@$(TGT_CONF)/$(VAPPNAME).xml
+	mkdir -p $@/$(DPKG_TGT)
+	cp $(DPKG_CTL_DIR)/control $@/$(DPKG_TGT)/control
+	sed -i 's/<version>/$(VERSION)/g' $@/$(DPKG_TGT)/control
+	sed -i 's/<maj_version>/$(LIB_VERSION)/g' $@/$(DPKG_TGT)/control
+	dpkg-deb -b $@
+
+dpkg-clean:
+	rm -rf $(DPKG_DIR)
